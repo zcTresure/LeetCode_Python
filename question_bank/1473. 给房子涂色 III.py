@@ -1,5 +1,5 @@
 class Solution:
-    def minCost(self, houses: List[int], cost: List[List[int]], m: int, n: int,
+    def minCost(self, houses: list, cost: list, m: int, n: int,
                 target: int) -> int:
         dp = collections.defaultdict(int)
         res = float('inf')
