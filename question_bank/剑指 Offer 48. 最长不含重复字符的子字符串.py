@@ -12,3 +12,4 @@ class Solution:
 s = "abcabcbb"
 test = Solution()
 print(test.lengthOfLongestSubstring(s))
+
