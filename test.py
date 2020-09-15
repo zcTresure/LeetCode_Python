@@ -1,23 +1,48 @@
 class Solution:
-    def combinationSum(self, candidates: list, target: int) -> list:
-        ans = list()
-
-        def backtrack(cur_nums: list, target: int, index: int):
-            if target < 0:
+    # 直接递归
+    def solveSudoku(self, board: list) -> None:
+        def dfs(pos: int):
+            # nonlocal valid
+            if pos == len(spaces):
+                # valid = True
                 return
-            elif target == 0:
-                ans.append(cur_nums[:])
-                return
-            else:
-                for i in range(index, len(candidates)):
-                    cur_nums.append(candidates[i])
-                    backtrack(cur_nums, target - candidates[i], i)
-                    cur_nums.pop()
-        backtrack([], target, 0)
-        return ans
+            i, j = spaces[pos]
+            for digit in range(9):
+                if row[i][digit] == column[j][digit] == block[i // 3][j // 3][digit] == False:
+                    row[i][digit] = column[j][digit] = block[i //
+                                                             3][j // 3][digit] = True
+                    board[i][j] = str(digit + 1)
+                    dfs(pos + 1)
+                    row[i][digit] = column[j][digit] = block[i //
+                                                             3][j // 3][digit] = False
+                # if valid:
+                #     return
+        
+        row = [[False] * 9 for _ in range(9)]
+        column = [[False] * 9 for _ in range(9)]
+        block = [[[False] * 9 for _a in range(3)] for _b in range(3)]
+        spaces = list()
+        # valid = False
+        for i in range(9):
+            for j in range(9):
+                if board[i][j] == '.':
+                    spaces.append((i, j))
+                else:
+                    digit = int(board[i][j]) - 1
+                    row[i][digit] = column[j][digit] = block[i //
+                                                             3][j // 3][digit] = True
+        dfs(0)
 
 
-candidates = [2, 3, 6, 7]
-target = 7
-test = Solution()
-print(test.combinationSum(candidates, target))
+board = [['5', '3', '.', '.', '7', '.', '.', '.', '.'],
+         ['6', '.', '.', '1', '9', '5', '.', '.', '.'],
+         ['.', '9', '8', '.', '.', '.', '.', '6', '.'],
+         ['8', '.', '.', '.', '6', '.', '.', '.', '3'],
+         ['4', '.', '.', '8', '.', '3', '.', '.', '1'],
+         ['7', '.', '.', '.', '2', '.', '.', '.', '6'],
+         ['.', '6', '.', '.', '.', '.', '2', '8', '.'],
+         ['.', '.', '.', '4', '1', '9', '.', '.', '5'],
+         ['.', '.', '.', '.', '8', '.', '.', '7', '9']]
+Solution().solveSudoku(board)
+for i in range(len(board)):
+    print(board[i])
