@@ -28,7 +28,7 @@ class Solution:
         return root
 
     # 先序遍历
-    def preordPrint(self, root: TreeNode) -> None:
+    def preorderPrint(self, root: TreeNode) -> None:
         if not root:
             return
         print(root.val, end=' ')
