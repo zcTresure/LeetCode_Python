@@ -33,6 +33,7 @@ class Solution:
                                                              3][j // 3][digit] = True
         dfs(0)
 
+    # 位运算优化
     def solveSudoku(self, board: list) -> None:
         def flip(i: int, j: int, digit: int):
             row[i] ^= (1 << digit)
@@ -71,7 +72,8 @@ class Solution:
                     digit = int(board[i][j]) - 1
                     flip(i, j, digit)
         dfs(0)
-        
+
+    # 枚举优化
     def solveSudoku(self, board: List[List[str]]) -> None:
         def flip(i: int, j: int, digit: int):
             line[i] ^= (1 << digit)
