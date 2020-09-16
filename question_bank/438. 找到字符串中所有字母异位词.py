@@ -2,15 +2,34 @@ from collections import Counter
 
 
 class Solution:
+    # 暴力迭代(时间超限)
     def findAnagrams(self, s: str, p: str) -> list:
         lenp = len(p)
         p = "".join(sorted(p))
-        res = []
+        res = list()
         for i in range(len(s) - len(p) + 1):
             if "".join(sorted(s[i:i + lenp])) == p:
                 res.append(i)
         return res
 
+    # 暴力迭代 + 哈希优化（时间超限）
+    def findAnagrams(self, s: str, p: str) -> list:
+        res = list()
+        lenp = len(p)
+        dict_p = defaultdict(int)
+        for c in p:
+            dict_p[c] += 1
+        for i in range(len(s) - lenp + 1):
+            flag = True
+            for c in p:
+                if s[i:i + lenp].count(c) != dict_p[c]:
+                    flag = False
+                    break
+            if flag:
+                res.append(i)
+        return res
+
+    # 哈希 + 前缀和
     def findAnagrams(self, s: str, p: str) -> list:
         lens, lenp = len(s), len(p)
         res = list()
@@ -24,10 +43,11 @@ class Solution:
                 res.append(i - lenp)
         return res
 
+    # 滑动窗口
     def findAnagrams(self, s: str, p: str) -> list:
         countP = [0] * 26
         countS = [0] * 26
-        res = []
+        res = list()
         for c in p:
             countP[ord(c) - 97] += 1
         left = 0
