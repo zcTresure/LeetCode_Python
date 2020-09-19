@@ -1,4 +1,4 @@
-from collections import defaultdict
+import collections
 
 
 class Solution:
@@ -13,6 +13,7 @@ class Solution:
         valid = True
         for info in prerequisites:
             edges[info[1]].append(info[0])
+
         def dfs(u: int):
             nonlocal valid
             # 将节点标记为「搜索中」
@@ -43,8 +44,6 @@ class Solution:
         # 注意下标 0 为栈底，因此需要将数组反序输出
         return result[::-1]
 
-
-class Solution:
     def findOrder(self, numCourses: int, prerequisites: list) -> list:
         # 存储有向图
         edges = collections.defaultdict(list)
@@ -74,4 +73,5 @@ class Solution:
 
 numCourses = 4
 prerequisites = [[1, 0], [2, 0], [3, 1], [3, 2]]
-print(Solution.findOrder(1, numCourses, prerequisites))
+test = Solution()
+print(test.findOrder(numCourses, prerequisites))

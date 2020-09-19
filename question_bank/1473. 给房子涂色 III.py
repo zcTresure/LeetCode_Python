@@ -1,3 +1,6 @@
+import collections
+
+
 class Solution:
     def minCost(self, houses: list, cost: list, m: int, n: int,
                 target: int) -> int:
@@ -43,3 +46,10 @@ class Solution:
                                 res = min(res, dp[i, j, newb])
         # 如果最终结果仍为inf的话则说明不存在这样的涂色方案, 返回-1
         return res if res != float('inf') else -1
+
+
+houses = [0, 0, 0, 0, 0]
+cost = [[1, 10], [10, 1], [10, 1], [1, 10], [5, 1]]
+m, n, target = 5, 2, 3
+test = Solution()
+print(test.minCost(houses, cost, m, n, target))

@@ -1,3 +1,7 @@
+import collections
+
+
+# Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -5,8 +9,28 @@ class TreeNode:
         self.right = right
 
 
-# 先序遍历递归实现
 class Solution:
+    def constructTreeNodeDynamic(self, nums: list) -> TreeNode:
+        if nums[0] == None:
+            return None
+        root = TreeNode(nums[0])
+        Nodes, index = [root], 1
+        for node in Nodes:
+            if node != None:
+                node.left = TreeNode(
+                    nums[index]) if nums[index] != None else None
+                Nodes.append(node.left)
+                index += 1
+                if index == len(nums):
+                    return root
+                node.right = TreeNode(
+                    nums[index]) if nums[index] != None else None
+                Nodes.append(node.right)
+                index += 1
+                if index == len(nums):
+                    return root
+
+    # 前序遍历递归实现
     def flatten(self, root: TreeNode) -> None:
         preorderlist = list()
 
@@ -21,9 +45,7 @@ class Solution:
             prev.left = None
             prev.right = cur
 
-
-# 先序遍历迭代实现
-class Solution:
+    # 前序遍历迭代实现
     def flatten(self, root: TreeNode) -> None:
         preorderlist = list()
         stack = list()
@@ -40,9 +62,8 @@ class Solution:
             prev.left = None
             prev.right = cur
 
+    # 前序遍历和展开同步进行
 
-# 前序遍历和展开同步进行
-class Solution:
     def flatten(self, root: TreeNode) -> None:
         if not root:
             return
@@ -60,9 +81,7 @@ class Solution:
                 stack.append(left)
             prev = cur
 
-
-# 寻找前驱节点
-class Solution:
+    # 寻找前驱节点
     def flatten(self, root: TreeNode) -> None:
         cur = root
         while cur:
@@ -74,3 +93,24 @@ class Solution:
                 cur.left = None
                 cur.right = nxt
             cur = cur.right
+
+    def levelorderPrint(self, root: TreeNode) -> None:
+        q = collections.deque()
+        q.append(root)
+        while q:
+            node = q.popleft()
+            print(node.val, end='')
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+            if q:
+                print(end=' ')
+        print()
+
+
+nums = [1, 2, 5, 3, 4, 6]
+test = Solution()
+root = test.constructTreeNodeDynamic(nums)
+test.flatten(root)
+test.levelorderPrint(root)

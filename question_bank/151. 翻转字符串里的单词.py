@@ -9,7 +9,7 @@ class Solution:
             while j < len(s) and s[j] != ' ':
                 j += 1
             stack.append(s[index:j])
-            index = j+1
+            index = j + 1
         while stack:
             ans += stack.pop() + " "
         return ans[:-1]
@@ -19,4 +19,5 @@ class Solution:
 
 
 s = "  hello world!  "
-print(Solution().reverseWords(s))       
+test = Solution()
+print(test.reverseWords(s))

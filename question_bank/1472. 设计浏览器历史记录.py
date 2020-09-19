@@ -20,3 +20,4 @@ class BrowserHistory:
         # 新的下标要小于列表长度
         self.i = min(len(self.q) - 1, self.i + steps)
         return self.q[self.i]
+

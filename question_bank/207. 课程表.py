@@ -1,3 +1,6 @@
+import collections
+
+
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: list) -> bool:
         edges = collections.defaultdict(list)
@@ -6,6 +9,7 @@ class Solution:
         valid = True
         for info in prerequisites:
             edges[info[1]].append(info[0])
+
         def dfs(u: int):
             nonlocal valid
             visited[u] = 1
@@ -24,16 +28,14 @@ class Solution:
                 dfs(i)
         return valid
 
-
-class Solution:
-    def canFinish(self, numCourses: int, prerequisites: list]) -> bool:
+    def canFinish(self, numCourses: int, prerequisites: list) -> bool:
         edges = collections.defaultdict(list)
         indeg = [0] * numCourses
 
         for info in prerequisites:
             edges[info[1]].append(info[0])
             indeg[info[0]] += 1
-        
+
         q = collections.deque([u for u in range(numCourses) if indeg[u] == 0])
         visited = 0
 
@@ -46,3 +48,8 @@ class Solution:
                     q.append(v)
 
         return visited == numCourses
+
+
+numCourses, prerequisites = 2, [[1, 0]]
+test = Solution()
+print(test.canFinish(numCourses, prerequisites))

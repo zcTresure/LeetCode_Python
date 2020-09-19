@@ -1,5 +1,6 @@
-# 暴力
+
 class Solution:
+    # 暴力
     def smallerNumbersThanCurrent(self, nums: list) -> list:
         res = []
         for i in range(len(nums)):
@@ -10,9 +11,7 @@ class Solution:
             res.append(count)
         return res
 
-
-# 频次数组 + 前缀和
-class Solution:
+    # 频次数组 + 前缀和
     def smallerNumbersThanCurrent(self, nums: list) -> list:
         n = len(nums)
         cnt, res = [0] * 101, [0] * n
@@ -25,9 +24,7 @@ class Solution:
                 res[i] = cnt[nums[i] - 1]
         return res
 
-
-# 排序
-class Solution:
+    # 排序
     def smallerNumbersThanCurrent(self, nums: list) -> list:
         n = len(nums)
         res = [0] * n
@@ -39,9 +36,7 @@ class Solution:
             res[tmp[i][1]] = pre + 1
         return res
 
-
-# 排序
-class Solution:
+    # 排序
     def smallerNumbersThanCurrent(self, nums: list) -> list:
         res = list()
         num = sorted(nums)
@@ -49,8 +44,6 @@ class Solution:
             res.append(num.index(i))
         return res
 
-
-class Solution:
     def smallerNumbersThanCurrent(self, nums: list) -> list:
         return [len(list(filter(lambda x: x < i, nums))) for i in nums]
 

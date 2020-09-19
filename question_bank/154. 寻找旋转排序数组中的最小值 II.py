@@ -1,5 +1,5 @@
 class Solution:
-    def findMin(self, nums: List[int]) -> int:
+    def findMin(self, nums: list) -> int:
         l, h = 0, len(nums) - 1
         while l < h:
             m = (h + l) >> 1
@@ -10,3 +10,8 @@ class Solution:
             else:
                 h -= 1
         return nums[l]
+
+
+nums = [1, 3, 5]
+test = Solution()
+print(test.findMin(nums))

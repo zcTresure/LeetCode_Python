@@ -44,7 +44,6 @@ class Solution:
         return ans if ans != float('inf') else 0
 
 
-# s, nums = 4, [1, 4, 4]
 s, nums = 7, [2, 3, 1, 2, 4, 3]
 test = Solution()
 print(test.minSubArrayLen(s, nums))

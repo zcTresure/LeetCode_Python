@@ -1,4 +1,4 @@
-from collections import deque
+import collections
 
 
 # Definition for a binary tree node.
@@ -31,7 +31,6 @@ class Solution:
                     return root
 
     # 先序遍历
-
     def preorderPrint(self, root: TreeNode) -> None:
         if not root:
             print('None', end=' ')
@@ -56,9 +55,23 @@ class Solution:
         self.postorderPrint(root.right)
         print(root.val, end=' ')
 
+    def levelorderPrint(self, root: TreeNode) -> None:
+        q = collections.deque()
+        q.append(root)
+        while q:
+            node = q.popleft()
+            print(node.val, end='')
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+            if q:
+                print(end=' ')
+        print()
+
 
 so = Solution()
 nums = [3, 2, 3, None, 3, None, 1]
 root = so.constructTreeNodeDynamic(nums)
-so.preorderPrint(root)
+so.levelorderPrint(root)
 print()

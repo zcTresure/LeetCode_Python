@@ -1,4 +1,34 @@
+from collections import deque
+
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
 class Solution:
+    def constructTreeNodeDynamic(self, nums: list) -> TreeNode:
+        if nums[0] == None:
+            return None
+        root = TreeNode(nums[0])
+        Nodes, index = [root], 1
+        for node in Nodes:
+            if node != None:
+                node.left = TreeNode(
+                    nums[index]) if nums[index] != None else None
+                Nodes.append(node.left)
+                index += 1
+                if index == len(nums):
+                    return root
+                node.right = TreeNode(
+                    nums[index]) if nums[index] != None else None
+                Nodes.append(node.right)
+                index += 1
+                if index == len(nums):
+                    return root
+
     def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
         if not p and not q:
             return True
@@ -14,8 +44,8 @@ class Solution:
             return True
         if not p or not q:
             return False
-        queue1 = collections.deque([p])
-        queue2 = collections.deque([q])
+        queue1 = deque([p])
+        queue2 = deque([q])
         while queue1 and queue2:
             node1 = queue1.popleft()
             node2 = queue2.popleft()
@@ -36,3 +66,11 @@ class Solution:
             if right2:
                 queue2.append(right2)
         return not queue1 and not queue2
+
+
+nums1 = [1, 2]
+nums2 = [1, None, 2]
+test = Solution()
+root1 = test.constructTreeNodeDynamic(nums1)
+root2 = test.constructTreeNodeDynamic(nums2)
+print(test.isSameTree(root1, root2))

@@ -1,5 +1,4 @@
-from queue import Queue
-import collections
+from collections import deque
 
 
 # Definition for a binary tree node.
@@ -11,22 +10,23 @@ class TreeNode:
 
 
 class Solution:
-    def constructTreeNodeDynamic(self, TreeNodeList: list) -> TreeNode:
-        q = Queue(len(TreeNodeList))
-        root = pre = TreeNode(TreeNodeList[0])
-        for i in range(1, len(TreeNodeList)):
-            if TreeNodeList[i] == None:
-                continue
-            cur = TreeNode(TreeNodeList[i])
-            if i % 2 == 1:
-                pre.left = cur
-                q.put(pre.left)
-            else:
-                pre.right = cur
-                q.put(pre.right)
-                if not q.empty():
-                    pre = q.get()
-        return root
+    def constructTreeNodeDynamic(self, nums: list) -> TreeNode:
+        if nums[0] == None:
+            return None
+        root = TreeNode(nums[0])
+        Nodes, index = [root], 1
+        for node in Nodes:
+            if node != None:
+                node.left = TreeNode(nums[index]) if nums[index] != None else None
+                Nodes.append(node.left)
+                index += 1
+                if index == len(nums):
+                    return root
+                node.right = TreeNode(nums[index]) if nums[index] != None else None
+                Nodes.append(node.right)
+                index += 1
+                if index == len(nums):
+                    return root
 
     # 深度优先搜索
     def binaryTreePaths(self, root: TreeNode) -> list:
@@ -49,8 +49,8 @@ class Solution:
         paths = list()
         if not root:
             return paths
-        node_queue = collections.deque([root])
-        path_queue = collections.deque([str(root.val)])
+        node_queue = deque([root])
+        path_queue = deque([str(root.val)])
         while node_queue:
             node = node_queue.popleft()
             path = path_queue.popleft()
@@ -59,10 +59,10 @@ class Solution:
             else:
                 if node.left:
                     node_queue.append(node.left)
-                    path_queue.append(path+'->'+str(node.left.val))
+                    path_queue.append(path + '->' + str(node.left.val))
                 if node.right:
                     node_queue.append(node.right)
-                    path_queue.append(path+'->'+str(node.right.val))
+                    path_queue.append(path + '->' + str(node.right.val))
         return paths
 
 

@@ -48,4 +48,5 @@ class Solution:
 
 
 matrix = []
-print(Solution().maximalSquare(matrix))
+test = Solution()
+print(test.maximalSquare(matrix))

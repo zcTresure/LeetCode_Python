@@ -91,3 +91,7 @@ listA = [4, 1, 8, 4, 5]
 listB = [5, 0, 1, 8, 4, 5]
 skipA, skipB = 2, 3
 test = Solution()
+headA = test.build(listA)
+headB = test.build(listB)
+head = test.getIntersectionNode(headA, headB)
+test.Print(head)

@@ -18,8 +18,6 @@ class Solution:
                         return False
         return not stack
 
-
-class Solution:
     def isValid(self, s: str) -> bool:
         stack = list()
         cmp = {')': '(', ']': '[', '}': '{'}

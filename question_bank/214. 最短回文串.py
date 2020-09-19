@@ -33,3 +33,8 @@ class Solution:
                 best += 1
         add = ("" if best == n - 1 else s[best + 1:])
         return add[::-1] + s
+
+
+s = "aacecaaa"
+test = Solution()
+print(test.shortestPalindrome(s))

@@ -10,4 +10,5 @@ class Solution:
 
 
 nums = [10, 2]
-print(Solution().largestNumber(nums))
+test = Solution()
+print(test.largestNumber(nums))

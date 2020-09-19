@@ -43,9 +43,7 @@ class Solution:
                         res += "b"; lastCh = "b"; b -= 1; isAdd = 1
         return res
 
-
-# 贪心算法，加入最多的字符。如果会构成三个连续，则加入次多的算符。
-class Solution:
+    # 贪心算法，加入最多的字符。如果会构成三个连续，则加入次多的算符。
     def longestDiverseString(self, a: int, b: int, c: int) -> str:
         m = {'a': a, 'b': b, 'c': c}
         res = ''
@@ -67,4 +65,5 @@ class Solution:
 
 
 a, b, c = 1, 1, 7
-print(Solution.longestDiverseString(1, a, b, c))
+test = Solution()
+print(test.longestDiverseString(a, b, c))

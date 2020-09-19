@@ -1,3 +1,6 @@
+import collections
+
+
 # Definition for a Node.
 class Node:
     def __init__(self, val=0, neighbors=[]):
@@ -5,11 +8,11 @@ class Node:
         self.neighbors = neighbors
 
 
-# 深度优先遍历
 class Solution:
     def __init__(self):
         self.visited = {}
 
+    # 深度优先遍历
     def cloneGraph(self, node: 'Node') -> 'Node':
         if not node:
             return
@@ -21,13 +24,8 @@ class Solution:
             clone_node.neighbors = [self.cloneGraph(n)for n in node.neighbors]
         return clone_node
 
-
-# 广度优先遍历
-import collections
-
-
-class Solution(object):
-    def cloneGraph(self, node):
+    # 广度优先遍历
+    def cloneGraph(self, node: 'Node') -> 'Node':
         if not node:
             return node
         visited = {}
@@ -49,3 +47,7 @@ class Solution(object):
                 # 更新当前节点的邻居列表
                 visited[n].neighbors.append(visited[neighbor])
         return visited[node]
+
+
+adjList = [[2, 4], [1, 3], [2, 4], [1, 3]]
+

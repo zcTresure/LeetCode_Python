@@ -8,9 +8,7 @@ class Solution:
                 G[i] += G[j - 1] * G[i - j]
         return G[n]
 
-
-# 卡特兰数
-class Solution(object):
+    # 卡特兰数
     def numTrees(self, n):
         C = 1
         for i in range(0, n):

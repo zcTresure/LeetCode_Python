@@ -14,3 +14,9 @@ class Solution:
         # 按照最强排序后取最后的k个即为所求
         arr = sorted(arr, key=mykey)
         return arr[n - k:]
+
+
+arr = [1, 2, 3, 4, 5]
+k = 2
+test = Solution()
+print(test.getStrongest(arr, k))

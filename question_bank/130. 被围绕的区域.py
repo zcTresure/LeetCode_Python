@@ -1,8 +1,8 @@
 import collections
 
 
-# 深度优先搜索
 class Solution:
+    # 深度优先搜索
     def solve(self, board: list) -> None:
         if not board:
             return
@@ -27,9 +27,7 @@ class Solution:
                 elif board[x][y] == 'O':
                     board[x][y] = 'X'
 
-
-# 广度优先搜索
-class Solution:
+    # 广度优先搜索
     def solve(self, board: list) -> None:
         if not board:
             return
@@ -63,7 +61,7 @@ board = [['X', 'X', 'X', 'X'],
          ['X', 'O', 'O', 'X'],
          ['X', 'X', 'O', 'X'],
          ['X', 'O', 'X', 'X']]
-solution = Solution()
-solution.solve(board)
+test = Solution()
+test.solve(board)
 for i in range(len(board)):
     print(board[i])

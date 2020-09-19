@@ -11,32 +11,24 @@ class TreeNode:
 
 class Solution:
     def constructTreeNodeDynamic(self, nums: list) -> TreeNode:
-        q = deque()
-        index = 0
-        root = pre = TreeNode(nums[0])
-        for i in range(1, len(nums)):
-            if not nums[i]:
-                if i > index * 2:
-                    (pre, index) = q.popleft()
-                continue
-            cur = TreeNode(nums[i])
-            if i % 2 == 1:
-                pre.left = cur
-                q.append((pre.left, i))
-            else:
-                pre.right = cur
-                q.append((pre.right, i))
-                (pre, index) = q.popleft()
-        return root
-
-    # 先序遍历
-    def preorderPrint(self, root: TreeNode) -> None:
-        if not root:
-            print('None', end=' ')
-            return
-        print(root.val, end=' ')
-        self.preorderPrint(root.left)
-        self.preorderPrint(root.right)
+        if nums[0] == None:
+            return None
+        root = TreeNode(nums[0])
+        Nodes, index = [root], 1
+        for node in Nodes:
+            if node != None:
+                node.left = TreeNode(
+                    nums[index]) if nums[index] != None else None
+                Nodes.append(node.left)
+                index += 1
+                if index == len(nums):
+                    return root
+                node.right = TreeNode(
+                    nums[index]) if nums[index] != None else None
+                Nodes.append(node.right)
+                index += 1
+                if index == len(nums):
+                    return root
 
     def sumOfLeftLeaves(self, root: TreeNode) -> int:
         def lnode(node): return not node.left and not node.right

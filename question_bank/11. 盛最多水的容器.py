@@ -19,7 +19,6 @@ class Solution:
             else:
                 res = max(res, height[left] * (right - left))
                 left += 1
-            print(left, right, res)
         return res
 
 
