@@ -1,4 +1,4 @@
-from queue import Queue
+from collections import deque
 
 
 # Definition for a binary tree node.
@@ -10,30 +10,35 @@ class TreeNode:
 
 
 class Solution:
-    def constructTreeNodeDynamic(self, TreeNodeList: list) -> TreeNode:
-        q = Queue(len(TreeNodeList))
-        root = pre = TreeNode(TreeNodeList[0])
-        for i in range(1, len(TreeNodeList)):
-            if TreeNodeList[i] == None:
-                continue
-            cur = TreeNode(TreeNodeList[i])
-            if i % 2 == 1:
-                pre.left = cur
-                q.put(pre.left)
-            else:
-                pre.right = cur
-                q.put(pre.right)
-                if not q.empty():
-                    pre = q.get()
-        return root
+    def constructTreeNodeDynamic(self, nums: list) -> TreeNode:
+        if nums[0] == None:
+            return None
+        root = TreeNode(nums[0])
+        Nodes, index = [root], 1
+        for node in Nodes:
+            if node != None:
+                node.left = TreeNode(
+                    nums[index]) if nums[index] != None else None
+                Nodes.append(node.left)
+                index += 1
+                if index == len(nums):
+                    return root
+                node.right = TreeNode(
+                    nums[index]) if nums[index] != None else None
+                Nodes.append(node.right)
+                index += 1
+                if index == len(nums):
+                    return root
 
     # 先序遍历
+
     def preorderPrint(self, root: TreeNode) -> None:
         if not root:
+            print('None', end=' ')
             return
         print(root.val, end=' ')
-        self.preordPrint(root.left)
-        self.preordPrint(root.right)
+        self.preorderPrint(root.left)
+        self.preorderPrint(root.right)
 
     # 中序遍历
     def orderPrint(self, root: TreeNode) -> None:
@@ -55,5 +60,5 @@ class Solution:
 so = Solution()
 nums = [3, 2, 3, None, 3, None, 1]
 root = so.constructTreeNodeDynamic(nums)
-so.orderPrint(root)
+so.preorderPrint(root)
 print()
