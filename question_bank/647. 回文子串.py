@@ -9,9 +9,7 @@ class Solution:
                     res += 1
         return res
 
-
-# 中心拓展
-class Solution:
+    # 中心拓展
     def countSubstrings(self, s: str) -> int:
         n, res = len(s), 0
         for i in range(2 * n - 1):
@@ -22,9 +20,7 @@ class Solution:
                 right += 1
         return res
 
-
-# # 动态规划
-class Solution:
+    # 动态规划
     def countSubstrings(self, s: str) -> int:
         n, res = len(s), 0
         dp = [[True] * n for _ in range(n)]
@@ -41,13 +37,9 @@ class Solution:
                     dp[j][k] = (dp[j + 1][k - 1] and s[j] == s[k])
                 if dp[j][k]:
                     res += 1
-        for i in range(n):
-            print(dp[i])
         return res
 
-
-# # Manacher/马拉车算法
-class Solution:
+    # Manacher/马拉车算法
     def countSubstrings(self, s: str) -> int:
         t = "-#"
         for c in s:

@@ -14,8 +14,6 @@ class Solution:
             print(dp)
         return max(dp)
 
-
-class Solution:
     def massage(self, nums: list) -> int:
         n = len(nums)
         if n == 0:
@@ -29,4 +27,5 @@ class Solution:
 
 
 nums = [1, 2, 3, 1]
-print(Solution.massage(1, nums))
+test = Solution()
+print(test.massage(nums))

@@ -1,5 +1,5 @@
-# 动态规划
 class Solution:
+    # 动态规划
     def numTrees(self, n):
         G = [0] * (n + 1)
         G[0], G[1] = 1, 1

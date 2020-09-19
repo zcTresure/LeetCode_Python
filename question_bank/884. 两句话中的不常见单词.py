@@ -10,4 +10,5 @@ class Solution:
 
 A = "apple apple"
 B = "banana"
-print(Solution().uncommonFromSentences(A, B))
+test = Solution()
+print(test.uncommonFromSentences(A, B))

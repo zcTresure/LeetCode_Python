@@ -13,7 +13,7 @@ class Solution:
 
         return recur(0, len(postorder) - 1)
 
-    def verifyPostorder(self, postorder: [int]) -> bool:
+    def verifyPostorder(self, postorder: list) -> bool:
         stack, root = [], float("+inf")
         for i in range(len(postorder) - 1, -1, -1):
             if postorder[i] > root:
@@ -22,3 +22,7 @@ class Solution:
                 root = stack.pop()
             stack.append(postorder[i])
         return True
+
+nums = [1,6,3,2,5]
+test = Solution()
+print(test.verifyPostorder(nums))

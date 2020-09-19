@@ -10,4 +10,5 @@ class Solution:
         return ans
 
 
-print(Solution().binaryGap(22))
+test = Solution()
+print(test.binaryGap(22))

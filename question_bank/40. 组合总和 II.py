@@ -20,4 +20,4 @@ class Solution:
 candidates = [10, 1, 2, 7, 6, 1, 5]
 target = 8
 test = Solution()
-print(test.combinationSum(candidates, target))
+print(test.combinationSum2(candidates, target))

@@ -13,4 +13,5 @@ class Solution:
         return ans
 
 
-print(Solution.sumSubarrayMins(1, A))
+test = Solution()
+print(test.sumSubarrayMins(A))

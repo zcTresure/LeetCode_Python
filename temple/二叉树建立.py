@@ -55,6 +55,7 @@ class Solution:
         self.postorderPrint(root.right)
         print(root.val, end=' ')
 
+    # 层次遍历
     def levelorderPrint(self, root: TreeNode) -> None:
         q = collections.deque()
         q.append(root)

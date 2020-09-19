@@ -1,5 +1,3 @@
-from queue import Queue
-from queue import deque
 import collections
 
 
@@ -35,7 +33,7 @@ class Solution:
     # 广搜
     def averageOfLevels(self, root: TreeNode) -> list:
         res = []
-        q = deque([root])
+        q = collections.deque([root])
         while q:
             nodesum = 0
             n = len(q)

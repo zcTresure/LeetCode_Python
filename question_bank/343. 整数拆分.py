@@ -13,8 +13,6 @@ class Solution:
                 dp[i] = max(dp[i], dp[i - j] * dp[j])
         return dp[n]
 
-
-class Solution:
     def integerBreak(self, n: int) -> int:
         dp = [0] * (n + 1)
         for i in range(2, n + 1):
@@ -22,8 +20,6 @@ class Solution:
                 dp[i] = max(dp[i], j * (i - j), dp[i - j] * j)
         return dp[n]
 
-
-class Solution:
     def integerBreak(self, n: int) -> int:
         if n < 4:
             return n - 1
@@ -33,8 +29,6 @@ class Solution:
             dp[i] = max(2 * (i - 2), 2 * dp[i - 2], 3 * dp[i - 3])
         return dp[n]
 
-
-class Solution:
     def integerBreak(self, n: int) -> int:
         if n <= 3:
             return n - 1
@@ -47,4 +41,4 @@ class Solution:
             return 3 ** quotient * 2
 
 
-print(Solution.integerBreak(1, 10))
+print(Solution().integerBreak(10))

@@ -118,4 +118,5 @@ class Solution:
 
 maze = ["S#O", "M.#", "M.T"]
 maze = ["S#O", "M.T", "M.."]
-print(Solution.minimalSteps(1, maze))
+test = Solution()
+print(test.minimalSteps(maze))

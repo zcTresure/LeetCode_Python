@@ -8,8 +8,6 @@ class Solution:
                 res[i] = res[i // 2]
         return res
 
-
-class Solution:
     def countBits(self, num: int) -> list:
         res = [0] * (num + 1)
         for i in range(1, num + 1):

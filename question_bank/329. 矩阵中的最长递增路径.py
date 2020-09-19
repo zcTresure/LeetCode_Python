@@ -1,11 +1,13 @@
 # 深度优先搜索 结果超出时间限制
 class Solution:
     DIRS = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+
     def longestIncreasingPath(self, matrix: list) -> int:
         if not matrix:
             return 0
         rows, columns = len(matrix), len(matrix[0])
         ans = 0
+
         def dfs(row: int, column: int) -> int:
             up = 1
             for dx, dy in Solution.DIRS:
@@ -18,11 +20,10 @@ class Solution:
                 ans = max(ans, dfs(i, j))
         return ans
 
-
-# 拓扑排序
-class Solution:
+    # 拓扑排序
     DIRS = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-    def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
+
+    def longestIncreasingPath(self, matrix: list) -> int:
         if not matrix:
             return 0
         rows, columns = len(matrix), len(matrix[0])
@@ -50,10 +51,8 @@ class Solution:
                             queue.append((newRow, newColumn))
         return ans
 
-
-# 记忆化+深度优先搜索
-class Solution:
-    def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
+    # 记忆化+深度优先搜索
+    def longestIncreasingPath(self, matrix: list) -> int:
         if not matrix:
             return 0
         nxt = ((1, 0), (-1, 0), (0, -1), (0, 1))
@@ -62,6 +61,7 @@ class Solution:
         col = len(matrix[0])
         matrix = [[float("inf")] * col] + matrix + [[float("inf")] * col]
         row = len(matrix)
+
         def maxIncreasingRoute(x: int, y: int) -> int:
             if (x, y) in old:
                 return old[(x, y)]
@@ -72,10 +72,8 @@ class Solution:
             return old[(x, y)]
         return max([maxIncreasingRoute(i, j) for j in range(1, col - 1) for i in range(1, row - 1)])
 
-
-# 排序+动态规划
-class Solution:
-    def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
+    # 排序+动态规划
+    def longestIncreasingPath(self, matrix: list) -> int:
         if not matrix:
             return 0
         x = len(matrix)
@@ -98,4 +96,5 @@ nums = [
     [3, 2, 6],
     [2, 2, 1]
 ]
-print(Solution.longestIncreasingPath(1, nums))
+test = Solution()
+print(test.longestIncreasingPath(nums))

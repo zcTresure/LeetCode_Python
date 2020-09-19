@@ -1,5 +1,8 @@
-# 深度优先搜索
+from collections import deque
+
+
 class Solution:
+    # 深度优先搜索
     def updateBoard(self, board: list, click: list) -> list:
         n, m = len(board), len(board[0])
         dic = [(-1, -1), (-1, 0), (-1, 1), (0, -1),
@@ -26,8 +29,6 @@ class Solution:
         dfs(click[0], click[1])
         return board
 
-
-class Solution:
     def updateBoard(self, board: list, click: list) -> list:
         n, m = len(board), len(board[0])
         dx = [-1, -1, -1, 0, 0, 1, 1, 1]
@@ -55,11 +56,6 @@ class Solution:
         dfs(board, click[0], click[1])
         return board
 
-
-from collections import deque
-
-
-class Solution:
     def updateBoard(self, board: list, click: list) -> list:
         n, m = len(board), len(board[0])
         dic = [(-1, -1), (-1, 0), (-1, 1), (0, -1),

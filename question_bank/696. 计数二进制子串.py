@@ -15,8 +15,6 @@ class Solution:
             res += min(cnt[i], cnt[i - 1])
         return res
 
-
-class Solution:
     def countBinarySubstrings(self, s: str) -> int:
         res = pre = 0
         cur = 1
@@ -31,7 +29,7 @@ class Solution:
         return res
 
 
-solution = Solution()
 s = "10101"
 s = "00110011"
-print(solution.countBinarySubstrings(s))
+test = Solution()
+print(test.countBinarySubstrings(s))

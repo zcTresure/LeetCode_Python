@@ -30,21 +30,17 @@ class Solution:
         dfs(0, 0)
         return ans
 
-
-class Solution:
     def restoreIpAddresses(self, s: str) -> list:
         res = list()
 
         def backtrack(s: str, tmp: list) -> None:
             if len(s) == 0 and len(tmp) == 4:
                 res.append('.'.join(tmp))
-                print(res)
                 return
             if len(tmp) < 4:
                 for i in range(min(3, len(s))):
                     p, n = s[:i + 1], s[i + 1:]
                     if p and 0 <= int(p) <= 255 and str(int(p)) == p:
-                        print(n, tmp, [p])
                         backtrack(n, tmp + [p])
 
         backtrack(s, [])
@@ -52,5 +48,5 @@ class Solution:
 
 
 s = "25525511135"
-so = Solution()
-print(so.restoreIpAddresses(s))
+test = Solution()
+print(test.restoreIpAddresses(s))

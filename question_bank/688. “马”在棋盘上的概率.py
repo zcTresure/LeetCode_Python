@@ -1,5 +1,10 @@
-# 没有限制的深搜，会超出时间限制
+import collections
+import copy
+from pprint import pprint
+
+
 class Solution:
+    # 没有限制的深搜，会超出时间限制
     def knightProbability(self, N: int, K: int, r: int, c: int) -> float:
         def dfs(r: int, c: int, count: int) -> float:
             if r < 0 or r > N - 1 or c < 0 or c > N - 1:
@@ -14,9 +19,7 @@ class Solution:
             return res / 8
         return dfs(r, c, 0)
 
-
-# 动态规划，dp数组记录每个位置的概率最后求和
-class Solution:
+    # 动态规划，dp数组记录每个位置的概率最后求和
     def knightProbability(self, N: int, K: int, r: int, c: int) -> float:
         dd = [(2, 1), (2, -1), (-2, 1), (-2, -1),
               (1, 2), (1, -2), (-1, 2), (-1, -2)]
@@ -33,9 +36,7 @@ class Solution:
             dp = dp2
         return sum(map(sum, dp))
 
-
-# 动态规划化简版
-class Solution:
+    # 动态规划化简版
     def knightProbability(self, N: int, K: int, r: int, c: int) -> float:
         p = {(r, c): 1}
         for _ in range(K):
@@ -43,11 +44,6 @@ class Solution:
                  for r in range(N) for c in range(N)}
         return sum(p.values())
 
-
-import collections
-
-
-class Solution:
     def knightProbability(self, N: int, K: int, r: int, c: int) -> float:
         # 最简单的想法，就是用dfs把所有的可能遍历完，然后统计不出界的数目，最后除以8**K
         # 其次的想法，我认为有一些行为是完全对称的，应该是可以避免重复计算的。
@@ -70,13 +66,6 @@ class Solution:
             return cur_cnt
         return dfs(N, K, r, c) / 8**K
 
-
-# 哈皮版
-import copy
-from pprint import pprint
-
-
-class Solution:
     def knightProbability(self, N: int, K: int, r: int, c: int) -> float:
         dp = list()
         for i in range(N):
@@ -103,4 +92,5 @@ class Solution:
 
 
 N, K, r, c = 3, 2, 0, 0
-print(Solution.knightProbability(1, N, K, r, c))
+test = Solution()
+print(test.knightProbability(N, K, r, c))

@@ -13,4 +13,5 @@ class Solution:
         return dp[n - 1]
 
 
-print(Solution.waysToStep(1, 5))
+test = Solution()
+print(test.waysToStep(5))

@@ -1,24 +1,22 @@
-# 直接遍历，数组默认升序
-# class Solution:
-#     def findMagicIndex(self, nums: list) -> int:
-#         for i in range(len(nums)):
-#             if nums[i] == i:
-#                 return i
-#         return -1
 
-# 跳着遍历，数组默认升序
-# class Solution:
-#     def findMagicIndex(self, nums: list) -> int:
-#         for i in range(len(nums)):
-#             if i == nums[i]:
-#                 return i
-#             if i < nums[i]:
-#                 i = nums[i] - 1
-#         return -1
-
-
-# 利用二分的思想，先找最小区间，数组默认升序
 class Solution:
+    # 直接遍历，数组默认升序
+    def findMagicIndex(self, nums: list) -> int:
+        for i in range(len(nums)):
+            if nums[i] == i:
+                return i
+        return -1
+
+    # 跳着遍历，数组默认升序
+    def findMagicIndex(self, nums: list) -> int:
+        for i in range(len(nums)):
+            if i == nums[i]:
+                return i
+            if i < nums[i]:
+                i = nums[i] - 1
+        return -1
+
+    # 利用二分的思想，先找最小区间，数组默认升序
     def findMagicIndex(self, nums: list) -> int:
         def helper(nums: list, left: int, right: int) -> int:
             if left > right:
@@ -32,9 +30,9 @@ class Solution:
             else:
                 return helper(nums, mid + 1, right)
         return helper(nums, 0, len(nums) - 1)
-    
 
 
 nums = [0, 2, 3, 4, 5]
 nums = [-1, 0, 2]
-print(Solution.findMagicIndex(1, nums))
+test = Solution()
+print(test.findMagicIndex(nums))

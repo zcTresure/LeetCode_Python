@@ -11,11 +11,10 @@ class Solution:
                     for j in range(n, ones - 1, -1):
                         res[i][j] = max(
                             res[i][j], res[i - zeroes][j - ones] + 1)
-                    for i in range(n + 1):
-                        print(res[i])
             return res[m][n]
 
 
 Array = {"10", "0001", "111001", "1", "0"}
 m, n = 5, 3
-print(Solution.findMaxForm(1, Array, m, n))
+test = Solution()
+print(test.findMaxForm(Array, m, n))

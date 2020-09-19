@@ -14,7 +14,6 @@ class Solution:
         max_heap = [(-val, key) for key, val in freq.items()]
         heapq.heapify(max_heap)
         for i in range(k):
-            print(max_heap)
             res.append(heapq.heappop(max_heap)[1])
         return res
 

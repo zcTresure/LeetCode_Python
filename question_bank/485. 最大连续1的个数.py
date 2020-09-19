@@ -21,4 +21,5 @@ class Solution:
 
 
 nums = [1, 1, 0, 1, 1, 1]
-print(Solution().findMaxConsecutiveOnes(nums))
+test = Solution()
+print(test.findMaxConsecutiveOnes(nums))

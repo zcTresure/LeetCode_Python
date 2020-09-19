@@ -14,4 +14,5 @@ class Solution:
         return res
 
 
-print(Solution().hammingWeight(101))
+test = Solution()
+print(test.hammingWeight(101))

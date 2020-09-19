@@ -74,7 +74,7 @@ class Solution:
         dfs(0)
 
     # 枚举优化
-    def solveSudoku(self, board: List[List[str]]) -> None:
+    def solveSudoku(self, board: list) -> None:
         def flip(i: int, j: int, digit: int):
             line[i] ^= (1 << digit)
             column[j] ^= (1 << digit)

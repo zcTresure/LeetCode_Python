@@ -24,3 +24,11 @@ class Solution:
                 if check(x, y, 0):
                     return True
         return False
+
+
+board = [['A', 'B', 'C', 'E'],
+         ['S', 'F', 'C', 'S'],
+         ['A', 'D', 'E', 'E']]
+word = "ABFD"
+test = Solution()
+print(test.exist(board, word))

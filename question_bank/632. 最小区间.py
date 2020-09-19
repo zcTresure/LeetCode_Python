@@ -1,6 +1,8 @@
-# N指针，N为列表个数
-'''
+import heapq
+
+
 class Solution:
+    # N指针，N为列表个数
     def smallestRange(self, nums: list) -> list:
         n = len(nums)
         if n == 0:
@@ -21,18 +23,11 @@ class Solution:
             else:
                 break
         return [min(elem_l), max(elem_l)]
-        '''
 
-
-# N指针 + 最小堆，N为列表个数
-import heapq
-
-
-class Solution:
+    # N指针 + 最小堆，N为列表个数
     def smallestRange(self, nums: list) -> list:
         k = len(nums)
         elem_id_index = [(elem[0], id, 0) for id, elem in enumerate(nums)]
-        print(elem_id_index)
         heapq.heapify(elem_id_index)
         maxnum, minnum = 1e5, -1e5
         currmaxnum = max(elem_id_index)[0]
@@ -53,4 +48,5 @@ class Solution:
 
 
 nums = [[4, 10, 15, 24, 26], [0, 9, 12, 20], [5, 18, 22, 30]]
-print(Solution.smallestRange(1, nums))
+test = Solution()
+print(test.smallestRange(nums))

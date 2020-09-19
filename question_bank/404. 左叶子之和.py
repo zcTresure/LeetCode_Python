@@ -1,4 +1,4 @@
-from collections import deque
+import collections
 
 
 # Definition for a binary tree node.
@@ -42,9 +42,21 @@ class Solution:
             return ans
         return dfs(root) if root else 0
 
+    def levelorderPrint(self, root: TreeNode) -> None:
+        q = collections.deque()
+        q.append(root)
+        while q:
+            node = q.popleft()
+            print(node.val, end='')
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+            if q:
+                print(end=' ')
+        print()
 
 nums = [3, 9, 20, None, None, 15, 7]
 test = Solution()
 root = test.constructTreeNodeDynamic(nums)
-test.preorderPrint(root)
 print(test.sumOfLeftLeaves(root))

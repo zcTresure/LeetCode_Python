@@ -4,11 +4,11 @@ class Solution:
             return False
         while n != 1:
             if n % 3 == 0:
-                print(1)
                 n /= 3
             else:
                 return False
         return True
 
 
-print(Solution().isPowerOfThree(45))
+test = Solution()
+print(test.isPowerOfThree(45))

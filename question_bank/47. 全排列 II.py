@@ -25,4 +25,5 @@ class Solution:
 
 
 nums = [1, 1, 2]
-print(Solution().permuteUnique(nums))
+test = Solution()
+print(test.permuteUnique(nums))

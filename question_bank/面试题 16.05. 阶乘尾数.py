@@ -7,4 +7,5 @@ class Solution:
         return ans
 
 
-print(Solution().trailingZeroes(30))
+test = Solution()
+print(test.trailingZeroes(30))
