@@ -16,6 +16,6 @@ class Solution:
         return res
 
 
-strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+strs = ["eat", "tea", "tan", "ate", "nat"]
 test = Solution()
 print(test.groupAnagrams(strs))
