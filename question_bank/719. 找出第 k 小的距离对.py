@@ -16,7 +16,7 @@ class Solution:
         return left
 
 
-nums = [1, 3, 1]
+nums = [1, 3, 2, 1]
 k = 1
 test = Solution()
 print(test.smallestDistancePair(nums, k))

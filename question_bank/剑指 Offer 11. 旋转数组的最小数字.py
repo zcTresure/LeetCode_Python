@@ -12,7 +12,7 @@ class Solution:
         return numbers[l]
 
 
-nums = [3, 4, 5, 1, 2]
-nums = [2, 2, 2, 0, 1]
+nums = [3, 4, 5, 1, 2, 2]
+nums = [2, 2, 2, 0, 1, 1]
 test = Solution()
 print(test.minArray(nums))
