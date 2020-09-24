@@ -71,8 +71,7 @@ class Solution:
         print()
 
 
-so = Solution()
+test = Solution()
 nums = [3, 2, 3, None, 3, None, 1]
-root = so.constructTreeNodeDynamic(nums)
-so.levelorderPrint(root)
-print()
+root = test.constructTreeNodeDynamic(nums)
+test.levelorderPrint(root)

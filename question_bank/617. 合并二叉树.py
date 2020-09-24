@@ -11,7 +11,6 @@ class TreeNode:
 
 class Solution:
     #数组按层次建立二叉树
-
     def constructTreeNodeDynamic(self, nums: list) -> TreeNode:
         if nums[0] == None:
             return None
