@@ -10,7 +10,7 @@ class TreeNode:
 
 
 class Solution:
-    def constructTreeNodeDynamic(self, nums: list) -> TreeNode:
+    def constructBTree(self, nums: list) -> TreeNode:
         if nums[0] == None:
             return None
         root = TreeNode(nums[0])
@@ -73,5 +73,5 @@ class Solution:
 
 test = Solution()
 nums = [3, 2, 3, None, 3, None, 1]
-root = test.constructTreeNodeDynamic(nums)
+root = test.constructBTree(nums)
 test.levelorderPrint(root)
