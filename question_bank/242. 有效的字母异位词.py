@@ -5,12 +5,11 @@ from collections import Counter
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         return sorted(s) == sorted(t)
-
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
-        dic_s = defaultdict(chr)
-        dic_t = defaultdict(chr)
+            dic_s = defaultdict(chr)
+            dic_t = defaultdict(chr)
         for i in range(len(s)):
             if s[i] not in dic_s:
                 dic_s[s[i]] = 1
