@@ -71,7 +71,8 @@ class Solution:
         print()
 
 
-test = Solution()
+
 nums = [3, 2, 3, None, 3, None, 1]
+test = Solution()
 root = test.constructBTree(nums)
 test.levelorderPrint(root)
