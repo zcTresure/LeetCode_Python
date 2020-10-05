@@ -43,12 +43,11 @@ class Solution:
         maxSum = -float('inf')
         for tmp in self.nodesSum:
             maxSum = max(maxSum, (sumNode - tmp) * tmp)
+
         return maxSum % 1000000007
 
 
-nums = [1,1]
+nums = [1, 1]
 test = Solution()
 root = test.constructBTree(nums)
 print(test.maxProduct(root))
-
-

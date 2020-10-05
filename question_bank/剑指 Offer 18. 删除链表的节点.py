@@ -17,15 +17,6 @@ class Solution:
             pre = pre.next
         return head
 
-    def Print(self, head: ListNode) -> None:
-        while head:
-            print(head.val, end='')
-            head = head.next
-            if head:
-                print(' ', end='')
-            else:
-                print()
-
     def deleteNode(self, head: ListNode, val: int) -> ListNode:
         if not head:
             return head
@@ -43,4 +34,3 @@ val = 0
 test = Solution()
 head = test.build(nums)
 head = test.deleteNode(head,val)
-test.Print(head)

@@ -3,6 +3,6 @@ class Solution:
         return len(s.split())
 
 
-s = "Hello, my name is John"
+s = "Hello, my name is ZC"
 test = Solution()
 print(test.countSegments(s))
