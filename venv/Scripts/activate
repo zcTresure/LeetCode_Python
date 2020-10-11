@@ -28,7 +28,11 @@ deactivate () {
     fi
 
     unset VIRTUAL_ENV
+<<<<<<< HEAD
     if [ ! "${1:-}" = "nondestructive" ] ; then
+=======
+    if [ ! "$1" = "nondestructive" ] ; then
+>>>>>>> dd014a3e59d283f4f7cfaa7420a7337d6b0c23bd
     # Self destruct!
         unset -f deactivate
     fi
@@ -37,7 +41,11 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
+<<<<<<< HEAD
 VIRTUAL_ENV="D:\Coding\LeetCode\venv"
+=======
+VIRTUAL_ENV="E:\code\Python\LeetCode\venv"
+>>>>>>> dd014a3e59d283f4f7cfaa7420a7337d6b0c23bd
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

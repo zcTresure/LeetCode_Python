@@ -27,7 +27,11 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
+<<<<<<< HEAD
 $env:VIRTUAL_ENV="D:\Coding\LeetCode\venv"
+=======
+$env:VIRTUAL_ENV="E:\code\Python\LeetCode\venv"
+>>>>>>> dd014a3e59d283f4f7cfaa7420a7337d6b0c23bd
 
 if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     # Set the prompt to include the env name
