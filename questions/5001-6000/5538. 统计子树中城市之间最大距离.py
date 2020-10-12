@@ -30,7 +30,7 @@ class Solution:
             cur = 0
             while i:
                 cur += 1
-                if i & 1:
+                if i & 1:# 奇数
                     tmp.append(cur)
                 i >>= 1
             if len(tmp) <= 1:
