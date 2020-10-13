@@ -23,8 +23,17 @@ class Solution:
             head = head.next
         print()
 
+    def swapPairs(self, head: ListNode) -> ListNode:
+        if not head or not head.next:
+            return head
+        last = head.next
+        head.next = self.swapPairs(last.next)
+        last.next = head
+        return last
 
 nums = [1, 2, 3, 4]
 test = Solution()
 head = test.build(nums)
+test.Print(head)
+head = test.swapPairs(head)
 test.Print(head)
