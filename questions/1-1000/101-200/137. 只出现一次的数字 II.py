@@ -17,13 +17,18 @@ class Solution:
     def singleNumber(self, nums: list) -> int:
         seen_once = seen_twice = 0
 
+        print("once  ", bin(seen_once))
+        print("twice ", bin(seen_twice))
         for num in nums:
             seen_once = ~seen_twice & (seen_once ^ num)
             seen_twice = ~seen_once & (seen_twice ^ num)
+            print("once  ", bin(seen_once))
+            print("twice ", bin(seen_twice))
+            print('----------------')
 
         return seen_once
 
 
-nums = [4, 1, 4, 4]
+nums = [4, 10, 4, 4]
 test = Solution()
-print(test.singleNumbers(nums))
+print(test.singleNumber(nums))
