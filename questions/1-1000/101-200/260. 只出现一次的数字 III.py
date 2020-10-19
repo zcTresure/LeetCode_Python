@@ -1,9 +1,9 @@
-import functools
+from functools import reduce
 
 
 class Solution:
     def singleNumbers(self, nums: list) -> list:
-        ret = functools.reduce(lambda x, y: x ^ y, nums)
+        ret = reduce(lambda x, y: x ^ y, nums)
         div = 1
         while div & ret == 0:
             div <<= 1

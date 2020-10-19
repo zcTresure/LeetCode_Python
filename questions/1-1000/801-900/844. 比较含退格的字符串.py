@@ -1,4 +1,5 @@
 class Solution:
+    # 栈
     def backspaceCompare(self, S: str, T: str) -> bool:
         def get(s: str):
             stack = []
@@ -11,6 +12,7 @@ class Solution:
 
         return get(S) == get(T)
 
+    # 双指针
     def backspaceCompare(self, S: str, T: str) -> bool:
         i, j = len(S) - 1, len(T) - 1
         skipS = skipT = 0

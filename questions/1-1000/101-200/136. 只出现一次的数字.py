@@ -40,11 +40,9 @@ class Solution:
 
     # 异或
     def singleNumber(self, nums: list) -> int:
+        res = 0
         for i in range(len(nums)):
-            if i == 0:
-                res = nums[i]
-            else:
-                res ^= nums[i]
+            res ^= nums[i]
         return res
 
     # 异或 + reduce函数
