@@ -28,7 +28,7 @@ def printMatrix(matrix):
         return []
 
 
-s = "12,2#3,4111"
+s = "1,2,3#4,5,6#7,8,9"
 matrix = get(s)
 ans = printMatrix(matrix)
 for i in range(len(ans)):
