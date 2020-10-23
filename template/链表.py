@@ -17,6 +17,17 @@ class Solution:
             pre = pre.next
         return head
 
+    # 反转链表
+    def reverseList(self, head: ListNode) -> ListNode:
+        previous = None
+        current = head
+        while current is not None:
+            nextNode = current.next
+            current.next = previous
+            previous = current
+            current = nextNode
+        return previous
+
     def Print(self, head: ListNode) -> None:
         while head:
             print(head.val, end='')
