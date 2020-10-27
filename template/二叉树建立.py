@@ -31,7 +31,7 @@ class Solution:
                     return root
 
     # 先序遍历
-    def preorderPrint(self, root: TreeNode) -> None:
+    def preorderTraversal(self, root: TreeNode) -> None:
         if not root:
             print('None', end=' ')
             return
