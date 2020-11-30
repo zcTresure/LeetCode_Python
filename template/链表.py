@@ -17,6 +17,16 @@ class Solution:
             pre = pre.next
         return head
 
+    # 打印链表
+    def Print(self, head: ListNode) -> None:
+        while head:
+            print(head.val, end='')
+            head = head.next
+            if head:
+                print(' ', end='')
+            else:
+                print()
+
     # 反转链表
     def reverseList(self, head: ListNode) -> ListNode:
         previous = None
@@ -27,15 +37,6 @@ class Solution:
             previous = current
             current = nextNode
         return previous
-
-    def Print(self, head: ListNode) -> None:
-        while head:
-            print(head.val, end='')
-            head = head.next
-            if head:
-                print(' ', end='')
-            else:
-                print()
 
 
 nums = [1, 2, 3, 4]
