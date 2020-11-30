@@ -1,5 +1,10 @@
+# !/usr/bin/env python
+# -*- coding:utf-8 -*-
+__author__ = "zcTresure"
+
 import heapq
 import collections
+
 
 class Solution:
     def reorganizeString(self, S: str) -> str:
@@ -31,3 +36,8 @@ class Solution:
             ans.append(queue[0][1])
 
         return "".join(ans)
+
+
+S = "aab"
+test = Solution()
+print(test.reorganizeString(S))
