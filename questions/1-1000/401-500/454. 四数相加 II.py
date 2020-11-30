@@ -1,5 +1,5 @@
-# !/usr/bin/env python
-# -*- coding:utf-8 -*-
+# File Name:  ${NAME}
+# date:       ${DATE}
 __author__ = "zcTresure"
 
 from collections import Counter

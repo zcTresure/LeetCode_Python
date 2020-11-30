@@ -1,5 +1,6 @@
-# !/usr/bin/env python
-# -*- coding:utf-8 -*-
+# File Name:  ${NAME}
+# date:       ${DATE}
+# oding:      UTF-8
 __author__ = "zcTresure"
 
 import heapq
@@ -10,7 +11,7 @@ class Solution:
     def reorganizeString(self, S: str) -> str:
         if len(S) < 2:
             return S
-
+ 
         length = len(S)
         counts = collections.Counter(S)
         maxCount = max(counts.items(), key=lambda x: x[1])[1]
