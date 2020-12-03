@@ -6,6 +6,7 @@ class ListNode:
 
 
 class Solution:
+    # 建立链表
     def build(self, nums: list) -> ListNode:
         if not nums:
             return
