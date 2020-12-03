@@ -1,3 +1,8 @@
+# Date:       2020/9/2
+# Coding:      UTF-8
+__author__ = "zcTresure"
+
+
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val):
