@@ -9,7 +9,7 @@ class Solution:
     # 建立链表
     def build(self, nums: list) -> ListNode:
         if not nums:
-            return
+            return None
         head = ListNode(nums[0])
         pre = head
         for i in range(1, len(nums)):
