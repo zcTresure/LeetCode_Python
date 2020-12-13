@@ -12,7 +12,10 @@ class Solution:
             s.add(num)
         return False
 
+    def containsDuplicate(self, nums: list) -> bool:
+        return len(set(nums)) < len(nums)
 
-nums = [1, 2, 3, 1]
+
+nums = [1, 2, 3]
 test = Solution()
 print(test.containsDuplicate(nums))
