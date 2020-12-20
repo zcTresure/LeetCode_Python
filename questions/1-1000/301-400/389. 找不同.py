@@ -2,8 +2,6 @@
 # Coding:      UTF-8
 __author__ = "zcTresure"
 
-from collections import Counter
-
 
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
