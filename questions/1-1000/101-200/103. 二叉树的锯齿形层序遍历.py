@@ -26,8 +26,7 @@ class Solution:
         Nodes, index = [root], 1
         for node in Nodes:
             if node != None:
-                node.left = TreeNode(
-                    nums[index]) if nums[index] != None else None
+                node.left = TreeNode(nums[index]) if nums[index] != None else None
                 Nodes.append(node.left)
                 index += 1
                 if index == len(nums):
