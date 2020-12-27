@@ -36,8 +36,8 @@ class Solution:
     # 前缀和+哈希表
     def numSubmatrixSumTarget(self, matrix: List[List[int]], target: int) -> int:
         rows, cols = len(matrix), len(matrix[0])
-        colsm = [[0] * cols for r in range(rows)]
         # 存储每一列的前缀和
+        colsm = [[0] * cols for r in range(rows)]
         for c in range(cols):
             cur = 0
             for r in range(rows):
