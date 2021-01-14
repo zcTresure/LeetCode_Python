@@ -1,3 +1,8 @@
+# Date:       2021/1/14
+# Coding:      UTF-8
+__author__ = "zcTresure"
+
+
 class Solution:
     def prefixesDivBy5(self, A: list) -> list:
         res = list()
