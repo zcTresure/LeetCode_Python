@@ -15,14 +15,14 @@ class UnionFind:
         # 当前连通分量数目
         self.setCount = n
 
-    def findset(self, x: int) -> int:
+    def findSet(self, x: int) -> int:
         if self.parent[x] == x:
             return x
-        self.parent[x] = self.findset(self.parent[x])
+        self.parent[x] = self.findSet(self.parent[x])
         return self.parent[x]
 
     def unite(self, x: int, y: int) -> bool:
-        x, y = self.findset(x), self.findset(y)
+        x, y = self.findSet(x), self.findSet(y)
         if x == y:
             return False
         if self.size[x] < self.size[y]:
@@ -33,7 +33,7 @@ class UnionFind:
         return True
 
     def connected(self, x: int, y: int) -> bool:
-        x, y = self.findset(x), self.findset(y)
+        x, y = self.findSet(x), self.findSet(y)
         return x == y
 
 
