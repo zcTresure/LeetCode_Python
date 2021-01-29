@@ -10,53 +10,52 @@ class TreeNode:
 
 
 class Solution:
-    def constructBTree(self, nums: list) -> TreeNode:
+    # 二叉树的建立
+    def buildBinaryTree(self, nums: list) -> TreeNode:
         if nums[0] == None:
             return None
         root = TreeNode(nums[0])
         Nodes, index = [root], 1
         for node in Nodes:
             if node != None:
-                node.left = TreeNode(
-                    nums[index]) if nums[index] != None else None
+                node.left = TreeNode(nums[index]) if nums[index] != None else None
                 Nodes.append(node.left)
                 index += 1
                 if index == len(nums):
                     return root
-                node.right = TreeNode(
-                    nums[index]) if nums[index] != None else None
+                node.right = TreeNode(nums[index]) if nums[index] != None else None
                 Nodes.append(node.right)
                 index += 1
                 if index == len(nums):
                     return root
 
     # 先序遍历
-    def preorderTraversal(self, root: TreeNode) -> None:
+    def preOrder(self, root: TreeNode) -> None:
         if not root:
             print('None', end=' ')
             return
         print(root.val, end=' ')
-        self.preorderPrint(root.left)
-        self.preorderPrint(root.right)
+        self.preOrder(root.left)
+        self.preOrder(root.right)
 
     # 中序遍历
-    def orderPrint(self, root: TreeNode) -> None:
+    def order(self, root: TreeNode) -> None:
         if not root:
             return
-        self.orderPrint(root.left)
+        self.order(root.left)
         print(root.val, end=' ')
-        self.orderPrint(root.right)
+        self.order(root.right)
 
     # 后序遍历
-    def postorderPrint(self, root: TreeNode) -> None:
+    def postorder(self, root: TreeNode) -> None:
         if not root:
             return
-        self.postorderPrint(root.left)
-        self.postorderPrint(root.right)
+        self.postorder(root.left)
+        self.postorder(root.right)
         print(root.val, end=' ')
 
     # 层次遍历
-    def levelorderPrint(self, root: TreeNode) -> None:
+    def levelOrder(self, root: TreeNode) -> None:
         q = collections.deque()
         q.append(root)
         while q:
@@ -73,5 +72,5 @@ class Solution:
 
 nums = [3, 2, 3, None, 3, None, 1]
 test = Solution()
-root = test.constructBTree(nums)
-test.levelorderPrint(root)
+root = test.buildBinaryTree(nums)
+test.levelOrder(root)
