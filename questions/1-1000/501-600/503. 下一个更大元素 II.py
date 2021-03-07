@@ -6,6 +6,7 @@ from typing import List
 
 
 class Solution:
+    # 单调栈
     def nextGreaterElements(self, nums: List[int]) -> List[int]:
         n = len(nums)
         res = [-1] * n
