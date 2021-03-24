@@ -1,5 +1,5 @@
 # Date:       2021/3/13
-# Coding:      UTF-8
+# encode:      UTF-8
 __author__ = "zcTresure"
 
 from typing import List
@@ -8,14 +8,14 @@ from functools import reduce
 
 
 class Solution:
-    def minimumLengthEncoding(self, words: List[str]) -> int:
+    def minimumLengthencode(self, words: List[str]) -> int:
         good = set(words)
         for word in words:
             for k in range(1, len(word)):
                 good.discard(word[k:])  # discard() 方法用于移除指定的集合元素
         return sum(len(word) + 1 for word in good)
 
-    def minimumLengthEncoding(self, words: List[str]) -> int:
+    def minimumLengthencode(self, words: List[str]) -> int:
         n = len(words)
         words.sort(key=lambda word: word[::-1])
         res = 0
@@ -29,5 +29,5 @@ class Solution:
 
 words = ["time", "me", "bell", "meat"]
 test = Solution()
-print(test.minimumLengthEncoding(words))
+print(test.minimumLengthencode(words))
 # meatime#bell#

@@ -1,5 +1,4 @@
-# File Name:  ${NAME}
-# date:       ${DATE}
+# encode:      UTF-8
 __author__ = "zcTresure"
 
 

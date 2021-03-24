@@ -1,6 +1,6 @@
 # File Name:  341. 扁平化嵌套列表迭代器
 # date:       2021/3/23
-# Coding:      UTF-8
+# encode:      UTF-8
 __author__ = 'zcTresure'
 
 import collections

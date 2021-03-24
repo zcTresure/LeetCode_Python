@@ -1,6 +1,6 @@
 # File Name:  191. 位1的个数
 # date:       2021/3/22
-# Coding:      UTF-8
+# encode:      UTF-8
 __author__ = 'zcTresure'
 
 

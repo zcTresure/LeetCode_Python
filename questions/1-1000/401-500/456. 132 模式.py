@@ -1,6 +1,6 @@
 # File Name:  456. 132 模式
 # date:       2021/3/24
-# Coding:      UTF-8
+# encode:      UTF-8
 __author__ = 'zcTresure'
 
 from typing import List

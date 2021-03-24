@@ -1,5 +1,5 @@
 # Date:       2021/1/29
-# Coding:      UTF-8
+# encode:      UTF-8
 __author__ = "zcTresure"
 
 from typing import List

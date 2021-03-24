@@ -1,6 +1,6 @@
 # File Name:  3. 无重复字符的最长子串
 # date:       2021/3/18
-# oding:      UTF-8
+# encode:      UTF-8
 __author__ = 'zcTresure'
 
 

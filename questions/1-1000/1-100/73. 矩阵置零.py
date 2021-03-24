@@ -1,6 +1,6 @@
 # File Name:  73. 矩阵置零
 # date:       2021/3/21
-# Coding:      UTF-8
+# encode:      UTF-8
 __author__ = 'zcTresure'
 
 from typing import List
