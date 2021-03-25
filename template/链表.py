@@ -44,6 +44,23 @@ class Solution:
             current = nextNode
         return previous
 
+    # 删除排序链表中的重复元素2
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        dummy = ListNode(-1)
+        dummy.next = head
+        pre, cur = dummy, head
+        while cur:
+            flag = False
+            while cur.next and cur.val == cur.next.val:
+                flag = True
+                cur = cur.next
+            if flag:
+                pre.next = cur.next
+            else:
+                pre = pre.next
+            cur = cur.next
+        return dummy.next
+
 
 nums = [1, 2, 3, 4]
 test = Solution()
