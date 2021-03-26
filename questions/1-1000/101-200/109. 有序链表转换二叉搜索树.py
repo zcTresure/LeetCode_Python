@@ -39,7 +39,7 @@ class Solution:
 
         def buildTree(left: ListNode, right: ListNode) -> TreeNode:
             if left == right:
-                return None
+                return TreeNode(-1)
             mid = getMedian(left, right)
             root = TreeNode(mid.val)
             root.left = buildTree(left, mid)

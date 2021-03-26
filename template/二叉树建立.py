@@ -9,11 +9,11 @@ class TreeNode:
         self.right = None
 
 
-class Solution:
+class BinaryTree:
     # 二叉树的建立
     def buildBinaryTree(self, nums: list) -> TreeNode:
-        if nums[0] == None:
-            return None
+        if not nums:
+            return TreeNode(-1)
         root = TreeNode(nums[0])
         Nodes, index = [root], 1
         for node in Nodes:
@@ -71,6 +71,6 @@ class Solution:
 
 
 nums = [3, 2, 3, None, 3, None, 1]
-test = Solution()
+test = BinaryTree()
 root = test.buildBinaryTree(nums)
 test.levelOrder(root)

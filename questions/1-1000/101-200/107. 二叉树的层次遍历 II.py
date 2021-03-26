@@ -13,7 +13,7 @@ class TreeNode:
 class Solution:
     def constructTreeNodeDynamic(self, nums: list) -> TreeNode:
         if nums[0] == None:
-            return None
+            return TreeNode(-1)
         root = TreeNode(nums[0])
         Nodes, index = [root], 1
         for node in Nodes:
