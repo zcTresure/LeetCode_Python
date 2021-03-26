@@ -38,7 +38,7 @@ class Solution:
                 cur = cur.next
             if flag:  # flag 为真说明有重复元素 跳过这些元素，前驱节点不动
                 pre.next = cur
-            pre = pre.next
+            pre = pre.next  # 每次循环前驱节点都后移一位
             cur = cur.next  # 每次循环当前节点都后移一位
         return dummy.next  # 返回头节点的后继节点
 
