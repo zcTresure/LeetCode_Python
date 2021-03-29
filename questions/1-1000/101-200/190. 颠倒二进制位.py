@@ -23,6 +23,9 @@ class Solution:
             cache[byte] = (byte * 0x0202020202 & 0x010884422010) % 1023
         return cache[byte]
 
+    def reverseBits(self, n):
+        return int('0b' + bin(n)[2:][::-1] + '0' * (32 - len(bin(n)[2:])), 2)
+
 
 test = Solution()
 print(test.reverseBits(43261596))
