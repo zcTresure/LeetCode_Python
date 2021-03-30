@@ -3,3 +3,6 @@
 __author__ = "zcTresure"
 
 
+class Solution():
+    def __init__(self, x):
+        self.x = x
