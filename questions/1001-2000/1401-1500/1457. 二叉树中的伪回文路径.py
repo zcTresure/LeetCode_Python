@@ -46,8 +46,8 @@ class Solution:
         def dfs(node, record=0):  # record 位运算初始记录为零
             if node:
                 record ^= (1 << node.val)  # 将 1 右移 node.val 位，记录 node.val 出现的次数 1<=val<=8
-                dfs(node.left, record)  # 递归左子树
-                dfs(node.right, record)  # 递归右子树
+                dfs(node.left, record)  # 递归调用左子树
+                dfs(node.right, record)  # 递归调用归右子树
                 if not node.left and not node.right:  # 为叶子节点判断是否为伪回文
                     if bin(record).count('1') < 2:  # 只有 record 中 1 出现的次数少于 2 才是伪回文 回文中心最多只有一个
                         self.count += 1
