@@ -17,8 +17,7 @@ class TreeNode:
 class Solution:
     # 二叉树的建立
     def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums:
-            return TreeNode(-1)
+        if not nums: return TreeNode(-1)
         root = TreeNode(nums[0])
         Nodes, index = [root], 1
         for node in Nodes:
@@ -26,8 +25,7 @@ class Solution:
                 node.left = TreeNode(nums[index]) if nums[index] != None else None
                 Nodes.append(node.left)
                 index += 1
-                if index == len(nums):
-                    return root
+                if index == len(nums): return root
                 node.right = TreeNode(nums[index]) if nums[index] != None else None
                 Nodes.append(node.right)
                 index += 1
@@ -38,8 +36,7 @@ class Solution:
         self.ans = 0
 
         def dfs(grandparent, parent, node):
-            if not node:
-                return
+            if not node: return
             if grandparent % 2 == 0:  # 祖父值为偶数，节点值加入答案
                 self.ans += node.val
             dfs(parent, node.val, node.left)  # 递归调用左子树
