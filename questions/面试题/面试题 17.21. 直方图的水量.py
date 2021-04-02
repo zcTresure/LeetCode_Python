@@ -7,10 +7,37 @@ from typing import List
 
 
 class Solution:
+    # 动态规划
+    def trap(self, height: List[int]) -> int:
+        if not height: return 0
+        n = len(height)
+        left_max = [height[0]] + [0] * (n - 1)  # 从左向右看的三视图
+        right_max = [0] * (n - 1) + [height[n - 1]]  # 从右向左看的三视图
+        for i in range(1, n):
+            left_max[i] = max(left_max[i - 1], height[i])  # 从左向右判断最大值并更新
+            right_max[n - i - 1] = max(right_max[n - i], height[n - i - 1])  # 从右向左判断最大值并更新
+        # 下标 i 处能接的水的量等于 min(leftMax[i], rightMax[i]) − height[i]
+        return sum(min(left_max[i], right_max[i]) - height[i] for i in range(n))
+
+    # 单调栈
+    def trap(self, height: List[int]) -> int:
+        ans = 0
+        stack = []
+        n = len(height)
+        for i, h in enumerate(height):
+            while stack and h > height[stack[-1]]:
+                top = stack.pop()  # 水池中间高度
+                if not stack: break
+                left = stack[-1]  # 水池左侧高度
+                cur_width = i - left - 1  # 水池凹槽的宽度
+                cur_height = min(height[left], h) - height[top]  # 水池左边和右边的最低高度减去水池中间高度就是水池的高度
+                ans += cur_width * cur_height  # 累加水池容量
+            stack.append(i)
+        return ans
+
     # 双指针
     def trap(self, height: List[int]) -> int:
-        if len(height) < 3:
-            return 0
+        if len(height) < 3: return 0
         water = 0
         left, right = 0, len(height) - 1  # 左右两个指针
         left_max, right_max = height[left], height[right]
