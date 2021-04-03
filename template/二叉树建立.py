@@ -29,6 +29,22 @@ class BinaryTree:
                 nodes.append(node.right)
                 index += 1
 
+    # 层次遍历
+    def levelOrder(self, root: TreeNode) -> None:
+        q = collections.deque()
+        q.append(root)
+        while q:
+            node = q.popleft()
+            if node:
+                print(node.val, end='')
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+                if q:
+                    print(end=' ')
+        print()
+
     # 先序遍历
     def preOrder(self, root: TreeNode) -> None:
         if not root:
@@ -54,21 +70,6 @@ class BinaryTree:
         self.postorder(root.right)
         print(root.val, end=' ')
 
-    # 层次遍历
-    def levelOrder(self, root: TreeNode) -> None:
-        q = collections.deque()
-        q.append(root)
-        while q:
-            node = q.popleft()
-            if node:
-                print(node.val, end='')
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-                if q:
-                    print(end=' ')
-        print()
 
 
 nums = [3]
