@@ -1,4 +1,4 @@
-# File Name:  297. 二叉树的序列化与反序列化
+# File Name:  剑指 Offer 37. 序列化二叉树
 # date:       2021/4/3
 # encode:      UTF-8
 __author__ = 'zcTresure'
@@ -34,6 +34,7 @@ class Codec:
                 nodes.append(node.right)
                 index += 1
 
+    # 层次遍历
     def levelOrder(self, root: TreeNode) -> None:
         q = deque()
         q.append(root)
@@ -49,30 +50,39 @@ class Codec:
                     print(end=' ')
         print()
 
+    # 序列化二叉树
     def serialize(self, root: TreeNode):
-        def dfs(node):
+        if not root: return "[]"
+        queue = deque([root])
+        res = []
+        while queue:
+            node = queue.popleft()
             if node:
-                vals.append(str(node.val))
-                dfs(node.left)
-                dfs(node.right)
+                res.append(str(node.val))
+                queue.append(node.left)
+                queue.append(node.right)
             else:
-                vals.append("#")
+                res.append("null")
+        return "[" + ",".join(res) + "]"
 
-        vals = []
-        dfs(root)
-        return ",".join(vals)
-
+    # 反序列化二叉树
     def deserialize(self, data):
-        def dfs():
-            val = next(vals)
-            if val == "#": return None
-            node = TreeNode(int(val))
-            node.left = dfs()
-            node.right = dfs()
-            return node
-
-        vals = iter(data.split(","))
-        return dfs()
+        if data == "[]": return
+        vals, i = data[1:-1].split(','), 1
+        root = TreeNode(int(vals[0]))
+        queue = deque()
+        queue.append(root)
+        while queue:
+            node = queue.popleft()
+            if vals[i] != "null":
+                node.left = TreeNode(int(vals[i]))
+                queue.append(node.left)
+            i += 1
+            if vals[i] != "null":
+                node.right = TreeNode(int(vals[i]))
+                queue.append(node.right)
+            i += 1
+        return root
 
 
 nums = [1, 2, 3, None, None, 4, 5]

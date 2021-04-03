@@ -15,19 +15,19 @@ class BinaryTree:
         if not nums:
             return TreeNode(-1)
         root = TreeNode(nums[0])
-        Nodes, index = [root], 1
-        for node in Nodes:
+        nodes, index, n = [root], 1, len(nums)
+        for node in nodes:
             if node != None:
+                if index == n:
+                    return root
                 node.left = TreeNode(nums[index]) if nums[index] != None else None
-                Nodes.append(node.left)
+                nodes.append(node.left)
                 index += 1
-                if index == len(nums):
+                if index == n:
                     return root
                 node.right = TreeNode(nums[index]) if nums[index] != None else None
-                Nodes.append(node.right)
+                nodes.append(node.right)
                 index += 1
-                if index == len(nums):
-                    return root
 
     # 先序遍历
     def preOrder(self, root: TreeNode) -> None:
@@ -60,17 +60,18 @@ class BinaryTree:
         q.append(root)
         while q:
             node = q.popleft()
-            print(node.val, end='')
-            if node.left:
-                q.append(node.left)
-            if node.right:
-                q.append(node.right)
-            if q:
-                print(end=' ')
+            if node:
+                print(node.val, end='')
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+                if q:
+                    print(end=' ')
         print()
 
 
-nums = [3, 2, 3, None, 3, None, 1]
+nums = [3]
 test = BinaryTree()
 root = test.buildBinaryTree(nums)
 test.levelOrder(root)
