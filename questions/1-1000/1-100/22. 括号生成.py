@@ -66,5 +66,6 @@ class Solution:
         return ans
 
 
+n = int(input("输入数字："))
 test = Solution()
-print(test.generateParenthesis(3))
+print(test.generateParenthesis(n))
