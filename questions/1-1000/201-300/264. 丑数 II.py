@@ -18,7 +18,6 @@ class Solution:
                 if (next := current * factor) not in seen:
                     seen.add(next)
                     heapq.heappush(heap, next)
-
         return heapq.heappop(heap)
 
     # 动态规划
