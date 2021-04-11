@@ -59,6 +59,7 @@ class Solution:
             for t in vals:
                 if t == targetSum:
                     count += 1
+
         return count
 
 
