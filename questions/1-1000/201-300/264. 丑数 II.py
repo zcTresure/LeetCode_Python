@@ -28,13 +28,10 @@ class Solution:
         for i in range(1, n):
             num2, num3, num5 = dp[p2] * 2, dp[p3] * 3, dp[p5] * 5
             dp[i] = min(num2, num3, num5)
-            if dp[i] == num2:
-                p2 += 1
-            if dp[i] == num3:
-                p3 += 1
-            if dp[i] == num5:
-                p5 += 1
-        return dp[n-1]
+            if dp[i] == num2: p2 += 1
+            if dp[i] == num3: p3 += 1
+            if dp[i] == num5: p5 += 1
+        return dp[n - 1]
 
 
 n = int(input("输入整数："))
