@@ -1,3 +1,9 @@
+# File Name:  179. 最大数
+# date:       2021/9/12
+# encode:      UTF-8
+__author__ = 'zcTresure'
+
+
 class LargerNumKey(str):
     def __lt__(x, y):
         return x + y > y + x

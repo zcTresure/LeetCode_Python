@@ -1,4 +1,4 @@
-import collections
+from collections import deque
 
 
 # Definition for a binary tree node.
@@ -31,7 +31,7 @@ class BinaryTree:
 
     # 层次遍历
     def levelOrder(self, root: TreeNode) -> None:
-        q = collections.deque()
+        q = deque()
         q.append(root)
         while q:
             node = q.popleft()
