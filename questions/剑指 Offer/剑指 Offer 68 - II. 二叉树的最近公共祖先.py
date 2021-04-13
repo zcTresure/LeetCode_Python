@@ -1,5 +1,5 @@
-# File Name:  236. 二叉树的最近公共祖先
-# date:       2021/4/11
+# File Name:  剑指 Offer 68 - II. 二叉树的最近公共祖先
+# date:       2021/4/13
 # encode:      UTF-8
 __author__ = 'zcTresure'
 
@@ -47,19 +47,19 @@ class Solution:
         dfs(root)
         return self.target_node
 
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        self.ans = root
+    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+        self.result = None
 
-        def dfs(root, p, q):
-            if not root: return False
-            left_son = dfs(root.left, p, q)
-            right_son = dfs(root.right, p, q)
-            if (left_son and right_son) or ((root.val == p.val or root.val == q.val) and (left_son or right_son)):
-                self.ans = root
-            return left_son or right_son or (root.val == q.val or root.val == p.val)
+        def heaper(node, p, q):
+            if not node: return False
+            left_son = heaper(node.left, p, q)
+            right_son = heaper(node.right, p, q)
+            if (left_son and right_son) or ((node.val == p.val or node.val == q.val) and (left_son or right_son)):
+                self.result = node
+            return left_son or right_son or (node.val == p.val or node.val == q.val)
 
-        dfs(root, p, q)
-        return self.ans
+        heaper(root, p, q)
+        return self.result
 
 
 nodes = [3, 5, 1, 6, 2, 0, 8, None, None, 7, 4]
