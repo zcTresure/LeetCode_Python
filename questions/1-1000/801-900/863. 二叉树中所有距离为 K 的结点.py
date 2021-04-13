@@ -1,4 +1,10 @@
+# File Name:  863. 二叉树中所有距离为 K 的结点
+# date:       2021/4/13
+# encode:      UTF-8
+__author__ = 'zcTresure'
+
 from collections import deque
+from typing import List
 
 
 # Definition for a binary tree node.
@@ -9,7 +15,7 @@ class TreeNode:
         self.right = None
 
 
-class BinaryTree:
+class Solution:
     # 二叉树的建立
     def buildBinaryTree(self, nums: list) -> TreeNode:
         if not nums:
@@ -29,47 +35,6 @@ class BinaryTree:
                 nodes.append(node.right)
                 index += 1
 
-    # 层次遍历
-    def levelOrder(self, root: TreeNode) -> None:
-        q = deque()
-        q.append(root)
-        while q:
-            node = q.popleft()
-            if node:
-                print(node.val, end='')
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-                if q:
-                    print(end=' ')
-        print()
-
-    # 先序遍历
-    def preOrder(self, root: TreeNode) -> None:
-        if not root:
-            print('None', end=' ')
-            return
-        print(root.val, end=' ')
-        self.preOrder(root.left)
-        self.preOrder(root.right)
-
-    # 中序遍历
-    def order(self, root: TreeNode) -> None:
-        if not root:
-            return
-        self.order(root.left)
-        print(root.val, end=' ')
-        self.order(root.right)
-
-    # 后序遍历
-    def postorder(self, root: TreeNode) -> None:
-        if not root:
-            return
-        self.postorder(root.left)
-        self.postorder(root.right)
-        print(root.val, end=' ')
-
     # 查找节点
     def findNode(self, root: TreeNode, target: int) -> TreeNode:
         self.target_node = TreeNode()
@@ -85,8 +50,32 @@ class BinaryTree:
         dfs(root)
         return self.target_node
 
+    def distanceK(self, root: TreeNode, target: TreeNode, K: int) -> List[int]:
+        def dfs(node, par=None):
+            if node:
+                node.par = par  # 连接父节点
+                dfs(node.left, node)
+                dfs(node.right, node)
 
-nums = [3]
-test = BinaryTree()
+        dfs(root)
+        queue = deque([(target, 0)])
+        seen = {target}
+        while queue:
+            if queue[0][1] == K:  # 以target为中心向外辐射，到半径为K时返回
+                return [node.val for node, _ in queue]
+            node, distance = queue.popleft()
+
+            for nei in (node.left, node.right, node.par):
+                if nei and nei not in seen:
+                    seen.add(nei)
+                    queue.append((nei, distance + 1))
+        return []
+
+
+nums = [3, 5, 1, 6, 2, 0, 8, None, None, 7, 4]
+target = 5
+K = 2
+test = Solution()
 root = test.buildBinaryTree(nums)
-test.levelOrder(root)
+target_node = test.findNode(root, target)
+print(test.distanceK(root, target_node, K))
