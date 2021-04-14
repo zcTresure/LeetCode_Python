@@ -12,8 +12,7 @@ class TreeNode:
 class BinaryTree:
     # 二叉树的建立
     def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums:
-            return TreeNode(-1)
+        if not nums: return None
         root = TreeNode(nums[0])
         nodes, index, n = [root], 1, len(nums)
         for node in nodes:
