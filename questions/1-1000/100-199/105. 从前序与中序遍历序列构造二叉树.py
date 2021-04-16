@@ -27,7 +27,7 @@ class Solution:
                 return None
             # 在中序遍历中定位根节点
             i_root = index[preorder[p_left]]
-            # # 前序遍历中的第一个节点就是根节点
+            # 前序遍历中的第一个节点就是根节点
             root = TreeNode(preorder[p_left])
             # 递归地构造左子树，并连接到根节点
             # 先序遍历中「从 左边界+1 开始的 size_left_subtree」个元素就对应了中序遍历中「从 左边界 开始到 根节点定位-1」的元素
