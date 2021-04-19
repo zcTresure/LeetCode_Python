@@ -1,3 +1,9 @@
+# File Name:  27. 移除元素
+# date:       2020/9/29
+# encode:      UTF-8
+__author__ = 'zcTresure'
+
+
 class Solution:
     def removeElement(self, nums: list, val: int) -> int:
         while(val in nums):
