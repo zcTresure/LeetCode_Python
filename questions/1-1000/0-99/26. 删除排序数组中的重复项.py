@@ -2,6 +2,8 @@
 # date:       2020/9/29
 # encode:      UTF-8
 __author__ = 'zcTresure'
+
+
 class Solution:
     def removeDuplicates(self, nums: list) -> int:
         a, b = 0, 1
