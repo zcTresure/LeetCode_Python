@@ -5,6 +5,7 @@ __author__ = 'zcTresure'
 
 
 class Solution:
+    # 动态规划
     def numWays(self, steps: int, arrLen: int) -> int:
         mod = 10 ** 9 + 7  # 最大数求余
         maxColumn = min(arrLen - 1, steps)  # 距离原点最远距离
