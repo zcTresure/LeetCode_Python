@@ -15,7 +15,7 @@ class Solution:
         return cnt
 
     def hammingDistance(self, x: int, y: int) -> int:
-        return len([b for b in bin(x ^ y) if b == '1'])
+        return sum(1 for b in bin(x ^ y) if b == '1')
 
 
 x, y = 1, 4
