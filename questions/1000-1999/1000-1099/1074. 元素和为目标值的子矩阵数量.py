@@ -3,7 +3,7 @@
 __author__ = "zcTresure"
 
 from typing import List
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 
 class Solution:
@@ -36,28 +36,47 @@ class Solution:
     # 前缀和+哈希表
     def numSubmatrixSumTarget(self, matrix: List[List[int]], target: int) -> int:
         rows, cols = len(matrix), len(matrix[0])
-        # 存储每一列的前缀和
-        colsm = [[0] * cols for r in range(rows)]
+        colms = [[0] * cols for r in range(rows)]  # 存储每一列的前缀和
         for c in range(cols):
             cur = 0
             for r in range(rows):
                 cur += matrix[r][c]
-                colsm[r][c] = cur
+                colms[r][c] = cur
         res = 0
         for sr in range(rows):
             for er in range(sr, rows):
                 d = defaultdict(int)
                 cur = 0
                 for c in range(cols):
-                    # 注意此处减去的是colsm[sr - 1][c], 因为要把起点行sr统计在内
-                    pre = 0 if sr - 1 < 0 else colsm[sr - 1][c]
-                    cur += colsm[er][c] - pre
-                    if cur == target:
-                        # cur本身就是target的特殊情况
+                    pre = 0 if sr - 1 < 0 else colms[sr - 1][c]  # 注意此处减去的是colms[sr - 1][c], 因为要把起点行sr统计在内
+                    cur += colms[er][c] - pre
+                    if cur == target:  # cur本身就是target的特殊情况
                         res += 1
                     res += d[cur - target]
                     d[cur] += 1
         return res
+
+    def numSubmatrixSumTarget(self, matrix: List[List[int]], target: int) -> int:
+        def subarraySum(nums: List[int], k: int) -> int:
+            mp = Counter([0])
+            count = pre = 0
+            for x in nums:
+                pre += x
+                if pre - k in mp:
+                    count += mp[pre - k]
+                mp[pre] += 1
+            return count
+
+        m, n = len(matrix), len(matrix[0])
+        ans = 0
+        for i in range(m):  # 枚举上边界
+            total = [0] * n
+            for j in range(i, m):  # 枚举下边界
+                for c in range(n):
+                    total[c] += matrix[j][c]  # 更新每列的元素和
+                ans += subarraySum(total, target)
+
+        return ans
 
 
 matrix = [[0, 1, 0], [1, 1, 1], [0, 1, 0]]
