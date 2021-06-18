@@ -4,8 +4,6 @@
 # Software: PyCharm
 __author__ = 'zcFang'
 
-from enum import Enum
-
 
 class Solution:
     def isNumber(self, s: str) -> bool:
