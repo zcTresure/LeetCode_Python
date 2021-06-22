@@ -9,7 +9,8 @@ from typing import List
 
 class Solution:
     def permutation(self, s: str) -> List[str]:
-        ans = []
+        s ,ans = list(s), []
+        s.sort()
         n = len(s)
         visited = [False] * n
 
