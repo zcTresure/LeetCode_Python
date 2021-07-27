@@ -49,6 +49,23 @@ class Solution:
         heapq.heappop(result)
         return -1 if not result else result[0]
 
+    def findSecondMinimumValue(self, root: TreeNode) -> int:
+        ans, root_val = -1, root.val
+
+        def dfs(node: TreeNode) -> None:
+            nonlocal ans
+            if not node:
+                return
+            if ans != -1 and node.val >= ans:  # 剪枝
+                return
+            if node.val > root_val:
+                ans = node.val
+            dfs(node.left)
+            dfs(node.right)
+
+        dfs(root)
+        return ans
+
 
 nums = [1, 1, 3, 1, 1, 3, 4, 3, 1, 1, 8]
 test = Solution()
