@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+# File:      581. 最短无序连续子数组.py
+# DATA:      2021/8/3
+# Software:  PyCharm
+__author__ = 'zcFang'
+
+
 class Solution:
     def findUnsortedSubarray(self, nums: list) -> int:
         size = len(nums)
