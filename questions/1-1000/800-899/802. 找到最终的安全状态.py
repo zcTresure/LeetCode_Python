@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+# File:      802. 找到最终的安全状态.py
+# DATA:      2020/10/05
+# Software:  PyCharm
+__author__ = 'zcFang'
+
 class Solution:
     def eventualSafeNodes(self, graph: list) -> list:
         nodes = len(graph)
