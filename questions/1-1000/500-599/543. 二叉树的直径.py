@@ -33,7 +33,7 @@ class Solution:
                 index += 1
 
     def diameterOfBinaryTree(self, root: TreeNode) -> int:
-        self.result = 0
+        self.result = 1
 
         def heaper(node):
             if not node: return 0
