@@ -13,6 +13,18 @@ class Solution:
                 dist[i & 1][v] = min(dist[i & 1][v], dist[~i & 1][u] + w)
         return dist[K & 1][dst] if dist[K & 1][dst] else -1
 
+    def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, K: int) -> int:
+        dist = [float("inf")] * n
+        dist[src] = 0
+        ans = float("inf")
+        for i in range(1, k + 2):
+            go = [float('inf')] * n
+            for f, t, c in flights:
+                go[t] = min(go[t], dist[f] + c)
+            dist = go
+            ans = min(ans, dist[dst])
+        return -1 if ans == float('inf') else ans
+
     # Dijkstra
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, K: int) -> int:
         graph = defaultdict(dict)
