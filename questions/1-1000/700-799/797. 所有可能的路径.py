@@ -8,6 +8,7 @@ from typing import List
 
 
 class Solution:
+    # 深度优先搜索
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
         ans = []
         stk = []
