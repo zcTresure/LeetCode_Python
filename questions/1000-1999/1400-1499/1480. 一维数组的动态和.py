@@ -1,10 +1,10 @@
+from typing import List
+from itertools import accumulate
+
+
 class Solution:
-    def runningSum(self, nums: list) -> list:
-        if not nums:
-            return []
-        for i in range(1, len(nums)):
-            nums[i] += nums[i - 1]
-        return nums
+    def runningSum(self, nums: List[int]) -> List[int]:
+        return list(accumulate(nums))
 
 
 nums = [1, 2, 3, 4, 5]
