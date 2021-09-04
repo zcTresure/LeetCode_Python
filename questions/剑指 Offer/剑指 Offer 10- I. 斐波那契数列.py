@@ -6,17 +6,19 @@ __author__ = 'zcFang'
 
 
 class Solution:
-    # def fib(self, n: int) -> int:
-    #     if n < 2:
-    #         return n
-    #     a, b, c = 0, 0, 1
-    #     MOD = 10 ** 9 + 7
-    #     for i in range(2, n + 1):
-    #         a = b
-    #         b = c
-    #         c = (a + b) % MOD
-    #     return c
+    # 动态规划
+    def fib(self, n: int) -> int:
+        if n < 2:
+            return n
+        a, b, c = 0, 0, 1
+        MOD = 10 ** 9 + 7
+        for i in range(2, n + 1):
+            a = b
+            b = c
+            c = (a + b) % MOD
+        return c
 
+    # 矩阵快速幂
     def fib(self, n: int) -> int:
         if n < 2:
             return n
