@@ -4,6 +4,8 @@
 # Software:  PyCharm
 __author__ = 'zcFang'
 
+from LinkList import LinkOperation
+
 
 # Definition for singly-linked list.
 class ListNode:
@@ -12,19 +14,7 @@ class ListNode:
         self.next = None
 
 
-class Solution:
-    # 建立链表
-    def build(self, nums: list) -> ListNode:
-        if not nums:
-            return ListNode(-1)
-        head = ListNode(nums[0])
-        pre = head
-        for i in range(1, len(nums)):
-            cur = ListNode(nums[i])
-            pre.next = cur
-            pre = pre.next
-        return head
-
+class Solution(LinkOperation):
     def getKthFromEnd(self, head: ListNode, k: int) -> ListNode:
         ans = head
         while k and head:

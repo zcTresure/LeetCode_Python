@@ -10,7 +10,7 @@ class ListNode:
         self.next = None
 
 
-class Solution:
+class LinkOperation:
     # 建立链表
     def build(self, nums: list) -> ListNode:
         if not nums:
@@ -61,8 +61,3 @@ class Solution:
             cur = cur.next
         return dummy.next
 
-
-nums = [1, 2, 3, 4]
-test = Solution()
-head = test.build(nums)
-test.Print(head)

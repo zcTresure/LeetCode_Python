@@ -83,9 +83,3 @@ class BinaryTree:
 
         dfs(root)
         return self.target_node
-
-
-nums = [3]
-test = BinaryTree()
-root = test.buildBinaryTree(nums)
-test.levelOrder(root)
