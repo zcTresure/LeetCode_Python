@@ -46,6 +46,7 @@ class Solution:
         return ans
 
 
-words = ["What", "must", "be", "acknowledgment", "shall", "be"]
-maxWidth = 16
+words = ["Science", "is", "what", "we", "understand", "well", "enough", "to", "explain",
+                 "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do"]
+maxWidth = 20
 print(Solution().fullJustify(words, maxWidth))
