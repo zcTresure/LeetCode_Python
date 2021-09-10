@@ -1,12 +1,11 @@
 from itertools import groupby
-from collections import Counter, defaultdict
+from collections import Counter
 
 
 class Solution:
     # 块处理
     def totalFruit(self, tree: list) -> int:
         blocks = [(k, len(list(v))) for k, v in groupby(tree)]
-        print(blocks)
         ans = i = 0
         while i < len(blocks):
             types, weight = set(), 0

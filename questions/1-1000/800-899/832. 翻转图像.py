@@ -1,18 +1,23 @@
+from typing import List
+
+
 class Solution:
-    def flipAndInvertImage(self, A: list) -> list:
-        m, n = len(A), len(A[0])
-        for i in range(m):
-            for j in range(n // 2):
-                A[i][j], A[i][n - j - 1] = A[i][n - j - 1], A[i][j]
-        for i in range(m):
-            for j in range(n):
-                if A[i][j]:
-                    A[i][j] = 0
-                else:
-                    A[i][j] = 1
-        return A
+    def flipAndInvertImage(self, image: List[List[int]]) -> List[List[int]]:
+        n = len(image)
+        for i in range(n):
+            left, right = 0, n - 1
+            while left < right:
+                if image[i][left] == image[i][right]:
+                    image[i][left] ^= 1
+                    image[i][right] ^= 1
+                left += 1
+                right -= 1
+            if left == right:
+                image[i][right] ^= 1
+        return image
 
 
-A = [[1, 1, 0], [1, 0, 1], [0, 0, 0]]
-test = Solution()
-print(test.flipAndInvertImage(A))
+image = [[1, 1, 0], [1, 0, 1], [0, 0, 0]]
+image = Solution().flipAndInvertImage(image)
+for nums in image:
+    print(nums)
