@@ -31,6 +31,7 @@ class Solution:
                     print(end=' ')
         print()
 
+    # 递归
     def bstFromPreorder(self, preorder: List[int]) -> TreeNode:
         self.index = 0
 
@@ -45,6 +46,27 @@ class Solution:
             return node
 
         return dfs(float('-inf'), float('inf'))
+
+    # 迭代
+    def bstFromPreorder(self, preorder: List[int]) -> TreeNode:
+        root = None
+        stack = list()
+        for val in preorder:
+            node = TreeNode(val)
+            if not root:
+                root = node
+                stack.append(root)
+                continue
+            if stack[-1].val > node.val:
+                stack[-1].left = node
+            else:
+                pre_node = stack.pop()
+                while stack and stack[-1].val < node.val:
+                    pre_node = stack.pop()
+                pre_node.right = node
+            stack.append(node)
+
+        return root
 
 
 nums = [8, 5, 1, 7, 10, 12]
