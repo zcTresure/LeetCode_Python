@@ -26,3 +26,7 @@ class Solution:
             if cnt[x] == 2:
                 ans.append(s[i : i + L])
         return ans
+
+
+s = 'ACGACGTTCGA'
+print(Solution().findRepeatedDnaSequences(s))
