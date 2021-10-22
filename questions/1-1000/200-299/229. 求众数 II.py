@@ -1,5 +1,7 @@
-class Solution():
+from typing import List
 
+
+class Solution:
     def majorityElement(self, nums: list) -> list:
         ans = []
         n = len(nums)
@@ -32,6 +34,21 @@ class Solution():
                     count2 -= 1
         judge(major1, count1, n)
         judge(major2, count2, n)
+        return ans
+
+    def majorityElement(self, nums: List[int]) -> List[int]:
+        cnt = {}
+        ans = []
+
+        for v in nums:
+            if v in cnt:
+                cnt[v] += 1
+            else:
+                cnt[v] = 1
+        for item in cnt.keys():
+            if cnt[item] > len(nums) // 3:
+                ans.append(item)
+
         return ans
 
 
