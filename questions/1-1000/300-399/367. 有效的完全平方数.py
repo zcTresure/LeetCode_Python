@@ -4,8 +4,6 @@
 # Software:  PyCharm
 __author__ = 'zcFang'
 
-from cmath import sqrt
-
 
 class Solution:
     # 二分查找
