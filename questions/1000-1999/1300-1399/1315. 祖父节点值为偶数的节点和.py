@@ -4,6 +4,7 @@
 __author__ = 'zcTresure'
 
 from collections import deque
+from template import BinaryTree
 
 
 # Definition for a binary tree node.
@@ -15,23 +16,6 @@ class TreeNode:
 
 
 class Solution:
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums: return TreeNode(-1)
-        root = TreeNode(nums[0])
-        Nodes, index = [root], 1
-        for node in Nodes:
-            if node != None:
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                Nodes.append(node.left)
-                index += 1
-                if index == len(nums): return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                Nodes.append(node.right)
-                index += 1
-                if index == len(nums):
-                    return root
-
     def sumEvenGrandparent(self, root: TreeNode) -> int:
         self.ans = 0
 
@@ -70,5 +54,5 @@ class Solution:
 
 nums = [6, 7, 8, 2, 7, 1, 3, 9, None, 1, 4, None, None, None, 5]
 test = Solution()
-root = test.buildBinaryTree(nums)
+root = BinaryTree.build(nums)
 print(test.sumEvenGrandparent(root))

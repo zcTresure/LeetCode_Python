@@ -4,6 +4,7 @@
 __author__ = 'zcTresure'
 
 from typing import List
+from template import BinaryTree
 from collections import defaultdict
 
 
@@ -16,24 +17,6 @@ class TreeNode:
 
 
 class Solution:
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums:
-            return TreeNode(-1)
-        root = TreeNode(nums[0])
-        nodes, index, n = [root], 1, len(nums)
-        for node in nodes:
-            if node != None:
-                if index == n:
-                    return root
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.left)
-                index += 1
-                if index == n:
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.right)
-                index += 1
-
     def verticalTraversal(self, root: TreeNode) -> List[List[int]]:
         seen = defaultdict(lambda: defaultdict(list))
 
@@ -55,5 +38,5 @@ class Solution:
 
 nums = [15, 9, 20, None, None, 3, 7]
 test = Solution()
-root = test.buildBinaryTree(nums)
+root = BinaryTree.build(nums)
 print(test.verticalTraversal(root))

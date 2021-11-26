@@ -3,6 +3,8 @@
 # encode:      UTF-8
 __author__ = 'zcTresure'
 
+from template import BinaryTree
+
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -13,25 +15,6 @@ class TreeNode:
 
 
 class Solution:
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums:
-            return TreeNode(-1)
-        root = TreeNode(nums[0])
-        nodes, index, n = [root], 1, len(nums)
-        for node in nodes:
-            if node != None:
-                if index == n:
-                    return root
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.left)
-                index += 1
-                if index == n:
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.right)
-                index += 1
-
     def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
         def check(s, t):
             if not s and not t: return True
@@ -50,6 +33,6 @@ class Solution:
 node1 = [3, 4, 5, 1, 2]
 node2 = [4, 1, 2]
 test = Solution()
-s = test.buildBinaryTree(node1)
-t = test.buildBinaryTree(node2)
+s = BinaryTree.build(node1)
+t = BinaryTree.build(node2)
 print(test.isSubtree(s, t))

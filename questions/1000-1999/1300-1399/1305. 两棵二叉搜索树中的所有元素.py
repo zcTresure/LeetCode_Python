@@ -4,6 +4,7 @@
 __author__ = 'zcTresure'
 
 from typing import List
+from template import BinaryTree
 
 
 # Definition for a binary tree node.
@@ -15,24 +16,6 @@ class TreeNode:
 
 
 class Solution:
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums: return None
-        root = TreeNode(nums[0])
-        nodes, index, n = [root], 1, len(nums)
-        for node in nodes:
-            if node != None:
-                if index == n:
-                    return root
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.left)
-                index += 1
-                if index == n:
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.right)
-                index += 1
-
     def getAllElements(self, root1: TreeNode, root2: TreeNode) -> List[int]:
         ans = list()
 
@@ -74,6 +57,6 @@ class Solution:
 nums1 = [2, 1, 4]
 nums2 = [1, 0, 3]
 test = Solution()
-root1 = test.buildBinaryTree(nums1)
-root2 = test.buildBinaryTree(nums2)
+root1 = BinaryTree.build(nums1)
+root2 = BinaryTree.build(nums2)
 print(test.getAllElements(root1, root2))

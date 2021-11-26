@@ -3,10 +3,11 @@
 # encode:      UTF-8
 __author__ = 'zcTresure'
 
-# Definition for a binary tree node.
 from typing import List
+from template import BinaryTree
 
 
+# Definition for a binary tree node.
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -15,23 +16,6 @@ class TreeNode:
 
 
 class Solution:
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums: return None
-        root = TreeNode(nums[0])
-        nodes, index, n = [root], 1, len(nums)
-        for node in nodes:
-            if node != None:
-                if index == n:
-                    return root
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.left)
-                index += 1
-                if index == n:
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.right)
-                index += 1
-
     def BSTSequences(self, root: TreeNode) -> List[List[int]]:
         if not root: return [[]]
         result = []
@@ -52,7 +36,7 @@ class Solution:
 
 nums = [2, 1, 3]
 test = Solution()
-root = test.buildBinaryTree(nums)
+root = BinaryTree.build(nums)
 result = test.BSTSequences(root)
 for tmp in result:
     print(tmp)

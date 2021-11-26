@@ -3,10 +3,11 @@
 # encode:      UTF-8
 __author__ = 'zcTresure'
 
-# Definition for a binary tree node.
 from collections import deque
+from template import BinaryTree
 
 
+# Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -15,23 +16,6 @@ class TreeNode:
 
 
 class Solution:
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums: return None
-        root = TreeNode(nums[0])
-        nodes, index, n = [root], 1, len(nums)
-        for node in nodes:
-            if node != None:
-                if index == n:
-                    return root
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.left)
-                index += 1
-                if index == n:
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.right)
-                index += 1
-
     def isEvenOddTree(self, root: TreeNode) -> bool:  # 层此遍历
         queue, level = deque([root]), 0
         while queue:
@@ -57,5 +41,5 @@ class Solution:
 
 root = [1, 10, 4, 3, None, 7, 9, 12, 8, 6, None, None, 2]
 test = Solution()
-root = test.buildBinaryTree(root)
+root = BinaryTree.build(root)
 print(test.isEvenOddTree(root))

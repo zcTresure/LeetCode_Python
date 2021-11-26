@@ -3,6 +3,8 @@
 # encode:      UTF-8
 __author__ = 'zcTresure'
 
+from template import BinaryTree
+
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -13,25 +15,6 @@ class TreeNode:
 
 
 class Solution:
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums:
-            return TreeNode(-1)
-        root = TreeNode(nums[0])
-        Nodes, index = [root], 1
-        for node in Nodes:
-            if node != None:
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                Nodes.append(node.left)
-                index += 1
-                if index == len(nums):
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                Nodes.append(node.right)
-                index += 1
-                if index == len(nums):
-                    return root
-
     # 先序遍历
     def preOrder(self, root: TreeNode) -> None:
         if not root:
@@ -77,6 +60,6 @@ class Solution:
 nums = [5, 3, 6, 2, 4, None, 7, None, None, None, None, None, 8]
 key = 5
 test = Solution()
-root = test.buildBinaryTree(nums)
+root = BinaryTree.build(nums)
 root = test.deleteNode(root, key)
 test.preOrder(root)

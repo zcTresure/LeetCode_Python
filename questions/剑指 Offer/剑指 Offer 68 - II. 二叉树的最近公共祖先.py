@@ -3,6 +3,8 @@
 # encode:      UTF-8
 __author__ = 'zcTresure'
 
+from template import BinaryTree
+
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -13,25 +15,6 @@ class TreeNode:
 
 
 class Solution:
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums:
-            return TreeNode(-1)
-        root = TreeNode(nums[0])
-        nodes, index, n = [root], 1, len(nums)
-        for node in nodes:
-            if node != None:
-                if index == n:
-                    return root
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.left)
-                index += 1
-                if index == n:
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.right)
-                index += 1
-
     # 查找节点
     def findNode(self, root: TreeNode, target: int) -> TreeNode:
         self.target_node = None
@@ -66,7 +49,7 @@ nodes = [3, 5, 1, 6, 2, 0, 8, None, None, 7, 4]
 p = 5
 q = 1
 test = Solution()
-root = test.buildBinaryTree(nodes)
+root = BinaryTree.build(nodes)
 node_p = test.findNode(root, p)
 node_q = test.findNode(root, q)
 print(test.lowestCommonAncestor(root, node_p, node_q).val)

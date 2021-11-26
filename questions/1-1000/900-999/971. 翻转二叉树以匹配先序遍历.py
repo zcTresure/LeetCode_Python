@@ -4,6 +4,7 @@
 __author__ = 'zcTresure'
 
 from typing import List
+from template import BinaryTree
 
 
 # Definition for a binary tree node.
@@ -15,25 +16,6 @@ class TreeNode:
 
 
 class Solution():
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums or nums[0] == None:
-            return TreeNode(-1)
-        root = TreeNode(nums[0])
-        Nodes, index = [root], 1
-        for node in Nodes:
-            if node != None:
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                Nodes.append(node.left)
-                index += 1
-                if index == len(nums):
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                Nodes.append(node.right)
-                index += 1
-                if index == len(nums):
-                    return root
-
     def flipMatchVoyage(self, root: TreeNode, voyage: List[int]) -> List[int]:
         self.flipped = []
         self.i = 0
@@ -61,5 +43,5 @@ class Solution():
 test = Solution()
 nums = [1, 2, 3]
 voyage = [1, 3, 2]
-root = test.buildBinaryTree(nums)
+root = BinaryTree.build(nums)
 print(test.flipMatchVoyage(root, voyage))

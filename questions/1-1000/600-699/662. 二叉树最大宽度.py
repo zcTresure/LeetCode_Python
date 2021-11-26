@@ -3,7 +3,7 @@
 # encode:      UTF-8
 __author__ = 'zcTresure'
 
-from collections import deque
+from template import BinaryTree
 
 
 # Definition for a binary tree node.
@@ -15,25 +15,6 @@ class TreeNode:
 
 
 class Solution:
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums:
-            return TreeNode(-1)
-        root = TreeNode(nums[0])
-        nodes, index, n = [root], 1, len(nums)
-        for node in nodes:
-            if node != None:
-                if index == n:
-                    return root
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.left)
-                index += 1
-                if index == n:
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.right)
-                index += 1
-
     def widthOfBinaryTree(self, root: TreeNode) -> int:
         if not root: return 0
         queue = [(root, 0, 0)]
@@ -52,5 +33,5 @@ class Solution:
 
 nums = [1, 3, 2, 5, 3, None, 9]
 test = Solution()
-root = test.buildBinaryTree(nums)
+root = BinaryTree.build(nums)
 print(test.widthOfBinaryTree(root))

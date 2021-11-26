@@ -4,6 +4,7 @@
 __author__ = 'zcTresure'
 
 from collections import deque
+from template import BinaryTree
 
 
 # Definition for a binary tree node.
@@ -15,25 +16,6 @@ class TreeNode:
 
 
 class Solution:
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums:
-            return TreeNode(-1)
-        root = TreeNode(nums[0])
-        nodes, index, n = [root], 1, len(nums)
-        for node in nodes:
-            if node != None:
-                if index == n:
-                    return root
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.left)
-                index += 1
-                if index == n:
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.right)
-                index += 1
-
     def addOneRow(self, root: TreeNode, val: int, depth: int) -> TreeNode:
         if depth == 1:  # 第一层添加节点特殊处理
             node = TreeNode(val)
@@ -79,7 +61,7 @@ class Solution:
 
 nodes = [4, 2, None, 3, 1]
 test = Solution()
-root = test.buildBinaryTree(nodes)
+root = BinaryTree.build(nodes)
 test.levelOrder(root)
 val, depth = 1, 3
 root = test.addOneRow(root, val, depth)

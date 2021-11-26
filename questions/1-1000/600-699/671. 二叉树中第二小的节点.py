@@ -4,6 +4,7 @@
 __author__ = 'zcTresure'
 
 import heapq
+from template import BinaryTree
 
 
 # Definition for a binary tree node.
@@ -15,25 +16,6 @@ class TreeNode:
 
 
 class Solution:
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums:
-            return TreeNode(-1)
-        root = TreeNode(nums[0])
-        nodes, index, n = [root], 1, len(nums)
-        for node in nodes:
-            if node != None:
-                if index == n:
-                    return root
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.left)
-                index += 1
-                if index == n:
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.right)
-                index += 1
-
     def findSecondMinimumValue(self, root: TreeNode) -> int:
         result = set()
 
@@ -69,5 +51,5 @@ class Solution:
 
 nums = [1, 1, 3, 1, 1, 3, 4, 3, 1, 1, 8]
 test = Solution()
-root = test.buildBinaryTree(nums)
+root = BinaryTree.build(nums)
 print(test.findSecondMinimumValue(root))

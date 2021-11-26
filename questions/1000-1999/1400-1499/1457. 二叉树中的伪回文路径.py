@@ -2,6 +2,7 @@
 # Coding:      UTF-8
 __author__ = "zcTresure"
 
+from template import BinaryTree
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -12,25 +13,6 @@ class TreeNode:
 
 
 class Solution:
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums:
-            return TreeNode(-1)
-        root = TreeNode(nums[0])
-        Nodes, index = [root], 1
-        for node in Nodes:
-            if node != None:
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                Nodes.append(node.left)
-                index += 1
-                if index == len(nums):
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                Nodes.append(node.right)
-                index += 1
-                if index == len(nums):
-                    return root
-
     # 先序遍历
     def preOrder(self, root: TreeNode) -> None:
         if not root:
@@ -58,5 +40,5 @@ class Solution:
 
 nums = [8, 6, 9, None, None, None, 4, 4, 1, 5, 4, None, None, None, None, 8]
 test = Solution()
-root = test.buildBinaryTree(nums)
+root = BinaryTree.build(nums)
 print(test.pseudoPalindromicPaths(root))

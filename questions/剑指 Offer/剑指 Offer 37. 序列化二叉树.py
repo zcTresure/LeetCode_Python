@@ -4,6 +4,7 @@
 __author__ = 'zcTresure'
 
 from collections import deque
+from template import BinaryTree
 
 
 # Definition for a binary tree node.
@@ -15,25 +16,6 @@ class TreeNode(object):
 
 
 class Codec:
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums:
-            return TreeNode(-1)
-        root = TreeNode(nums[0])
-        nodes, index, n = [root], 1, len(nums)
-        for node in nodes:
-            if node != None:
-                if index == n:
-                    return root
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.left)
-                index += 1
-                if index == n:
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.right)
-                index += 1
-
     # 层次遍历
     def levelOrder(self, root: TreeNode) -> None:
         q = deque()
@@ -87,7 +69,7 @@ class Codec:
 
 nums = [1, 2, 3, None, None, 4, 5]
 test = Codec()
-root = test.buildBinaryTree(nums)
+root = BinaryTree.build(nums)
 test.levelOrder(root)
 data = test.serialize(root)
 print(data)

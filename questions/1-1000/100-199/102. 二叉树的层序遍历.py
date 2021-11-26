@@ -5,6 +5,7 @@ __author__ = 'zcTresure'
 
 from typing import List
 from collections import deque
+from template import BinaryTree
 
 
 # Definition for a binary tree node.
@@ -16,25 +17,6 @@ class TreeNode:
 
 
 class Solution:
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums:
-            return TreeNode(-1)
-        root = TreeNode(nums[0])
-        nodes, index, n = [root], 1, len(nums)
-        for node in nodes:
-            if node != None:
-                if index == n:
-                    return root
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.left)
-                index += 1
-                if index == n:
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.right)
-                index += 1
-
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         queue = deque([root])
         result = []
@@ -54,5 +36,5 @@ class Solution:
 
 nodes = [3, 9, 20, None, None, 15, 7]
 test = Solution()
-root = test.buildBinaryTree(nodes)
+root = BinaryTree.build(nodes)
 print(test.levelOrder(root))

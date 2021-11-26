@@ -4,6 +4,7 @@
 __author__ = 'zcTresure'
 
 from collections import deque
+from template import BinaryTree
 from typing import List
 
 
@@ -16,24 +17,6 @@ class TreeNode:
 
 
 class Solution:
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums: return None
-        root = TreeNode(nums[0])
-        nodes, index, n = [root], 1, len(nums)
-        for node in nodes:
-            if node != None:
-                if index == n:
-                    return root
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.left)
-                index += 1
-                if index == n:
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.right)
-                index += 1
-
     def levelOrder(self, root: TreeNode) -> List[int]:
         if not root: return []
         queue = deque([root])
@@ -49,5 +32,5 @@ class Solution:
 
 nums = [3, 2, 1, None, None, 2, 3]
 test = Solution()
-root = test.buildBinaryTree(nums)
+root = BinaryTree.build(nums)
 print(test.levelOrder(root))

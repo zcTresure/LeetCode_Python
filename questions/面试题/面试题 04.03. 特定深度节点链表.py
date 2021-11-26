@@ -5,6 +5,7 @@ __author__ = 'zcTresure'
 
 from typing import List
 from collections import deque
+from template import BinaryTree, LinkList
 
 
 # Definition for a binary tree node.
@@ -35,35 +36,6 @@ class Solution:
             pre = pre.next
         return head
 
-    # 打印链表
-    def Print(self, head: ListNode) -> None:
-        while head:
-            print(head.val, end='')
-            head = head.next
-            if head:
-                print(' ', end='')
-            else:
-                print()
-
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums:
-            return TreeNode(-1)
-        root = TreeNode(nums[0])
-        Nodes, index = [root], 1
-        for node in Nodes:
-            if node != None:
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                Nodes.append(node.left)
-                index += 1
-                if index == len(nums):
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                Nodes.append(node.right)
-                index += 1
-                if index == len(nums):
-                    return root
-
     # 特定深度节点链表
     def listOfDepth(self, tree: TreeNode) -> List[ListNode]:
         ans = []
@@ -71,7 +43,7 @@ class Solution:
         queue.append(tree)
         while queue:
             n = len(queue)
-            tmp = list()
+            cur, head = None, None
             for i in range(n):
                 node = queue.popleft()
                 if node.left: queue.append(node.left)
@@ -88,7 +60,7 @@ class Solution:
 
 nums = [1, 2, 3, 4, 5, None, 7, 8]
 test = Solution()
-root = test.buildBinaryTree(nums)
+root = BinaryTree.build(nums)
 ans = test.listOfDepth(root)
 for i in range(len(ans)):
-    test.Print(ans[i])
+    LinkList.Print(ans[i])

@@ -5,6 +5,7 @@ __author__ = 'zcTresure'
 
 from collections import deque
 from typing import List
+from template import BinaryTree
 
 
 # Definition for a binary tree node.
@@ -16,25 +17,6 @@ class TreeNode:
 
 
 class Solution:
-    # 二叉树的建立
-    def buildBinaryTree(self, nums: list) -> TreeNode:
-        if not nums:
-            return TreeNode(-1)
-        root = TreeNode(nums[0])
-        nodes, index, n = [root], 1, len(nums)
-        for node in nodes:
-            if node != None:
-                if index == n:
-                    return root
-                node.left = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.left)
-                index += 1
-                if index == n:
-                    return root
-                node.right = TreeNode(nums[index]) if nums[index] != None else None
-                nodes.append(node.right)
-                index += 1
-
     # 查找节点
     def findNode(self, root: TreeNode, target: int) -> TreeNode:
         self.target_node = TreeNode()
@@ -76,6 +58,6 @@ nums = [3, 5, 1, 6, 2, 0, 8, None, None, 7, 4]
 target = 5
 K = 2
 test = Solution()
-root = test.buildBinaryTree(nums)
+root = BinaryTree.build(nums)
 target_node = test.findNode(root, target)
 print(test.distanceK(root, target_node, K))
