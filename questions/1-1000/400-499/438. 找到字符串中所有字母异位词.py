@@ -1,4 +1,10 @@
-from collections import Counter
+# -*- coding: utf-8 -*-
+# File:      438. 找到字符串中所有字母异位词.py
+# DATA:      2020/09/16
+# Software:  PyCharm
+__author__ = 'zcFang'
+
+from collections import Counter, defaultdict
 
 
 class Solution:
@@ -61,6 +67,39 @@ class Solution:
             countS[ord(s[left]) - 97] -= 1
             left += 1
         return res
+
+    # 优化滑动窗口
+    def findAnagrams(self, s: str, p: str) -> list:
+        s_len, p_len = len(s), len(p)
+        ans = []
+        if s_len < p_len:
+            return ans
+        count = [0] * 26
+        for i in range(p_len):
+            count[ord(s[i]) - ord('a')] += 1
+            count[ord(p[i]) - ord('a')] += 1
+
+        differ = [c != 0 for c in count].count(True)
+        if differ == 0:
+            ans.append(0)
+
+        for i in range(s_len - p_len):
+            if count[ord(s[i]) - ord('a')] == 1:  # 窗口中字符s[i]的数量与字符串p的数量不同
+                differ -= 1
+            elif count[ord(s[i]) - ord('a')] == 0:  # 窗口中字符s[i]的数量与字符串p的数量相同
+                differ += 1
+            count[ord(s[i]) - ord('a')] -= 1
+
+            if count[ord(s[i + p_len]) - ord('a')] == -1:  # 窗口中字符s[i-p_len]的数量与字符串p的数量不同
+                differ -= 1
+            elif count[ord(s[i + p_len]) - ord('a')] == 0:  # 窗口中字符s[i-p_len]的数量与字符串p的数量相同
+                differ += 1
+            count[ord(s[i + p_len]) - ord('a')] += 1
+
+            if differ == 0:
+                ans.append(i + 1)
+
+        return ans
 
 
 s = "cbaebabacd"
