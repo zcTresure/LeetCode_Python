@@ -3,10 +3,15 @@
 # Date:     2021/6/14
 # Software: PyCharm
 __author__ = 'zcFang'
+
+
 # The isBadVersion API is already defined for you.
 # @param version, an integer
 # @return an integer
-# def isBadVersion(version):
+
+def isBadVersion(version):
+    return version == bad
+
 
 class Solution:
     def firstBadVersion(self, n):
@@ -22,3 +27,9 @@ class Solution:
             else:
                 left = mid + 1
         return left
+
+
+if __name__ == '__main__':
+    bad = 4
+    n = 4
+    print(Solution().firstBadVersion(n))
