@@ -1,3 +1,5 @@
+from collections import Counter
+
 
 class Solution:
     # 排序
@@ -25,9 +27,7 @@ class Solution:
     def intersect(self, nums1: list, nums2: list) -> list:
         if len(nums1) > len(nums2):
             return self.intersect(nums2, nums1)
-        m = collections.Counter()
-        for num in nums1:
-            m[num] += 1
+        m = Counter(nums1)
         intersection = list()
         for num in nums2:
             if (count:= m.get(num, 0)) > 0:
@@ -39,6 +39,7 @@ class Solution:
         return intersection
 
 
-nums1 = [1, 2, 2, 1], nums2 = [2, 2]
+nums1 = [1, 2, 2, 1]
+nums2 = [2, 2]
 test = Solution()
 print(test.intersect(nums1, nums2))
