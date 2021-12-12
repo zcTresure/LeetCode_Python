@@ -4,12 +4,10 @@ class Solution:
             return []
         res = [[1]]
         while len(res) < numRows:
-            newRows = [a + b for a, b in zip([0] + res[-1], res[-1] + [0])]
-            res.append(newRows)
+            new_rows = [a + b for a, b in zip([0] + res[-1], res[-1] + [0])]
+            res.append(new_rows)
         return res
 
 
 test = Solution()
-ans = test.generate(5)
-for i in range(len(ans)):
-    print(ans[i])
+print(Solution().generate(numRows=5))
