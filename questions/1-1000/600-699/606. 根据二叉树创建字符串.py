@@ -1,4 +1,4 @@
-import collections
+from template import BinaryTree
 
 
 # Definition for a binary tree node.
@@ -10,26 +10,6 @@ class TreeNode:
 
 
 class Solution:
-    def constructTreeNodeDynamic(self, nums: list) -> TreeNode:
-        if nums[0] == None:
-            return None
-        root = TreeNode(nums[0])
-        Nodes, index = [root], 1
-        for node in Nodes:
-            if node != None:
-                node.left = TreeNode(
-                    nums[index]) if nums[index] != None else None
-                Nodes.append(node.left)
-                index += 1
-                if index == len(nums):
-                    return root
-                node.right = TreeNode(
-                    nums[index]) if nums[index] != None else None
-                Nodes.append(node.right)
-                index += 1
-                if index == len(nums):
-                    return root
-
     def tree2str(self, root: TreeNode) -> str:
         if not root:
             return ""
@@ -42,5 +22,5 @@ class Solution:
 
 nums = [1, 2, 3, 4]
 test = Solution()
-root = test.constructTreeNodeDynamic(nums)
+root = BinaryTree.build(nums)
 print(test.tree2str(root))
