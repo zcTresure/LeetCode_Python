@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# File:      1337. 矩阵中战斗力最弱的 K 行.py
-# DATA:      2021/8/2
-# Software:  PyCharm
+# File:    1337. 矩阵中战斗力最弱的 K 行.py
+# Date:    2021/8/1
+# Software: Pycharm
 __author__ = 'zcFang'
 
 import heapq
