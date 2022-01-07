@@ -8,7 +8,7 @@ __author__ = 'zcFang'
 class Solution:
     def maxDepth(self, s: str) -> int:
         cnt = 0
-        ans = 0;
+        ans = 0
         for c in s:
             if (c == '('):
                 cnt += 1
