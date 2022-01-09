@@ -7,10 +7,10 @@ class Solution:
             shift += 1
         return m << shift
 
-        def rangeBitwiseAnd(self, m: int, n: int) -> int:
-            while m < n:
-                n = n & (n - 1)
-            return n
+    def rangeBitwiseAnd(self, m: int, n: int) -> int:
+        while m < n:
+            n = n & (n - 1)
+        return n
 
 
 m, n = 5, 7
