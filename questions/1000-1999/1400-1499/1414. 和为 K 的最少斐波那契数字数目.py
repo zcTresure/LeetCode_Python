@@ -12,6 +12,18 @@ class Solution:
                 k -= num
         return ans
 
+    def findMinFibonacciNumbers(self, k: int) -> int:
+        fib = [1, 1]
+        while fib[-1] < k:
+            fib.append(fib[-1] + fib[-2])
+        ans, i = 0, len(fib) - 1
+        while k:
+            if k >= fib[i]:
+                k -= fib[i]
+                ans += 1
+            i -= 1
+        return ans
+
 
 test = Solution()
 print(test.findMinFibonacciNumbers(19))
