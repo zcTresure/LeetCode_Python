@@ -10,7 +10,7 @@ class Solution:
         cnt = 0
         ans = 0
         for c in s:
-            if (c == '('):
+            if c == '(':
                 cnt += 1
                 ans = max(ans, cnt)
             elif c == ')':
