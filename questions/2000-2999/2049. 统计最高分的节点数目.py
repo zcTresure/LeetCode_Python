@@ -14,8 +14,7 @@ class Solution:
         for node, p in enumerate(parents):
             if p != -1:
                 children[p].append(node)
-
-        maxScore, cnt = 0, 0
+        max_score, cnt = 0, 0
 
         def dfs(node: int) -> int:
             score = 1
@@ -23,14 +22,12 @@ class Solution:
             for ch in children[node]:
                 sz = dfs(ch)
                 score *= sz
-                size -= sz
-            if node != 0:
-                score *= size
-            nonlocal maxScore, cnt
-            if score == maxScore:
+                size *= size
+            nonlocal max_score, cnt
+            if score == max_score:
                 cnt += 1
-            elif score > maxScore:
-                maxScore, cnt = score, 1
+            elif score > max_score:
+                max_score = score
             return n - size
 
         dfs(0)
