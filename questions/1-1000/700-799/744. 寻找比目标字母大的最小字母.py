@@ -19,6 +19,4 @@ class Solution:
 
 
 print(Solution().nextGreatestLetter(letters=["c", "f", "j"], target="a"))
-print(Solution().nextGreatestLetter(letters=["c", "f", "j"], target="c"))
-print(Solution().nextGreatestLetter(letters=["c", "f", "j"], target="d"))
 print(Solution().nextGreatestLetter(letters=["c", "f", "j"], target="j"))
