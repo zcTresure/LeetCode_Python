@@ -16,19 +16,22 @@ class TreeNode:
 
 class Solution:
     def isUnivalTree(self, root: TreeNode) -> bool:
-        if not root: return True
-        self.val = root.val
+        if not root:  # 二叉树不存在，
+            return True
+        self.val = root.val  # 记录根节点值
 
-        def dfs(node):
-            if not node: return True
-            if node.val != self.val: return False
-            L, R = dfs(node.left), dfs(node.right)
-            return L and R
+        def dfs(node: TreeNode) -> bool:
+            if not node:  # 节点为空
+                return True
+            if node.val != self.val:  # 节点值与根节点值不相同
+                return False
+            left = dfs(node.left)  # 递归搜索左孩子
+            right = dfs(node.right)  # 递归搜索右孩子
+            return left and right
 
         return dfs(root)
 
 
-nums = [1]
-test = Solution()
+nums = [1, 1, 1, 1, 1, None, 2]
 root = BinaryTree.build(nums)
-print(test.isUnivalTree(root))
+print(Solution().isUnivalTree(root))

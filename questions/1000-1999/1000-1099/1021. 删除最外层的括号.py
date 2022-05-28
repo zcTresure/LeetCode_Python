@@ -18,6 +18,18 @@ class Solution:
                 level += 1
         return ans
 
+    def removeOuterParentheses(self, s: str) -> str:
+        ans = ''
+        level = 0
+        for c in s:
+            if c == '(':
+                level += 1
+            if level > 1:
+                ans = ans + c
+            if c == ')':
+                level -= 1
+        return ans
+
 
 s = '(()())(())'
-print(Solution().removeOuterParentheses(s))
+print(Solution().removeOuterParentheses(s="(()())(())(()(()))"))
