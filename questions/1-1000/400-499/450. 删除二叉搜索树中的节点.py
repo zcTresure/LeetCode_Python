@@ -15,45 +15,33 @@ class TreeNode:
 
 
 class Solution:
-    # 先序遍历
-    def preOrder(self, root: TreeNode) -> None:
-        if not root:
-            print('None', end=' ')
-            return
-        print(root.val, end=' ')
-        self.preOrder(root.left)
-        self.preOrder(root.right)
-
-    def successor(self, node):  # One step right and then always left
-        node = node.right
+    # 查找最左节点
+    def successor(self, node):
         while node.left:
             node = node.left
         return node.val
 
-    def predecessor(self, node):  # One step left and then always right
-        node = node.left
+    # 查找最右节点
+    def predecessor(self, node):
         while node.right:
             node = node.right
         return node.val
 
     def deleteNode(self, root: TreeNode, key: int) -> TreeNode:
-        self.preOrder(root)
-        print()
         if not root: return None
-        if key > root.val:  # delete from the right subtree
+        if key > root.val:  # 目标节点大于根节点，递归寻找右子树
             root.right = self.deleteNode(root.right, key)
-        elif key < root.val:  # delete from the left subtree
+        elif key < root.val:  # 目标节点小于根节点，递归寻找左子树
             root.left = self.deleteNode(root.left, key)
-        else:  # delete the current node
-            if not (root.left or root.right):  # the node is a leaf
+        else:  # 找到目标节点
+            if not (root.left or root.right):  # 删除节点为叶子节点
                 root = None
-            elif root.right:  # the node is not a leaf and has a right child
-                root.val = self.successor(root)
-                root.right = self.deleteNode(root.right, root.val)
-            else:  # the node is not a leaf, has no right child, and has a left child
-                root.val = self.predecessor(root)
-                root.left = self.deleteNode(root.left, root.val)
-
+            elif root.right:  # 删除节点存在右子树
+                root.val = self.successor(root.right)  # 找到右子树的最左节点
+                root.right = self.deleteNode(root.right, root.val)  # 递归删除右子树最左节点
+            else:  # 删除节点存在左子树
+                root.val = self.predecessor(root.left)  # 找左子树的最右节点
+                root.left = self.deleteNode(root.left, root.val)  # 递归删除左子树最右节点
         return root
 
 
@@ -62,4 +50,4 @@ key = 5
 test = Solution()
 root = BinaryTree.build(nums)
 root = test.deleteNode(root, key)
-test.preOrder(root)
+BinaryTree.preOrder(root)

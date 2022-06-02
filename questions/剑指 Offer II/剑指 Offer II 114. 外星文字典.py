@@ -34,3 +34,6 @@ class Solution:
         return ''.join(q) if len(q) == len(inDeg) else ""
 
 
+arr = [["wrt", "wrf", "er", "ett", "rftt"], ["z", "x"], ["z", "x", "z"]]
+for words in arr:
+    print(Solution().alienOrder(words))

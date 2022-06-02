@@ -16,15 +16,15 @@ class TreeNode:
 
 class Solution:
     def sumRootToLeaf(self, root: TreeNode) -> int:
-        return self.heaper(root)
+        return self.helper(root)
 
-    def heaper(self, node, ret=0):
+    def helper(self, node, ret=0):
         if not node: return 0  # 空节点返回0
         ret = (ret << 1) + node.val  # 节点非空向右进1位
         if not node.left and not node.right:  # 叶子节点返回
             return ret
         # 递归左右子树
-        return self.heaper(node.left, ret) + self.heaper(node.right, ret)
+        return self.helper(node.left, ret) + self.helper(node.right, ret)
 
 
 nums = [1, 0]
