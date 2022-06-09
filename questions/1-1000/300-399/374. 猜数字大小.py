@@ -2,14 +2,16 @@
 # File:     374. 猜数字大小.py
 # Date:     2021/6/14
 # Software: PyCharm
-__author__ = 'zcFang'
 
 
 # The guess API is already defined for you.
 # @param num, your guess
 # @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
-# def guess(num: int) -> int:
 from sympy.concrete.guess import guess
+
+
+# def guess(num: int) -> int:
+#     return num
 
 
 class Solution:
@@ -26,5 +28,4 @@ class Solution:
         return left
 
 
-n = 10
-print(Solution().guessNumber(n))
+print(Solution().guessNumber(n=10))

@@ -19,3 +19,6 @@ class Solution:
             else:
                 right = mid - 1
         return -1
+
+
+print(Solution().search(nums=[-1, 0, 3, 5, 9, 12], target=9))
