@@ -1,20 +1,20 @@
-class Solution:
-    def findAndReplacePattern(self, words: list, pattern: str) -> list:
-        def match(words: str) -> bool:
-            m1, m2 = {}, {}
-            for w, p in zip(words, pattern):
-                # 存储words -> pattern 的映射
-                if w not in m1:
-                    m1[w] = p
-                # 存储pattern -> words 的映射
-                if p not in m2:
-                    m2[p] = w
-                # 当前两个字符与映射不同时 匹配失败
-                if (m1[w], m2[p]) != (p, w):
-                    return False
-            return True
-        return list(filter(match, words))
+from typing import List
 
+
+class Solution:
+    # 单射函数
+    def match(self, word: str, pattern: str) -> bool:
+        cmp = {}
+        for w, p in zip(word, pattern):
+            if w not in cmp:
+                cmp[w] = p
+            elif cmp[w] != p:
+                return False
+        return True
+
+    # 通过两个单射构建双射
+    def findAndReplacePattern(self, words: List[str], pattern: str) -> List[str]:
+        return [word for word in words if self.match(word, pattern) and self.match(pattern, word)]
 
 words = ["abc", "deq", "mee", "aqq", "dkd", "ccc"]
 pattern = "abb"

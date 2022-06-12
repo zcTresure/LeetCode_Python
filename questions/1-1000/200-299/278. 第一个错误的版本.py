@@ -29,7 +29,5 @@ class Solution:
         return left
 
 
-if __name__ == '__main__':
-    bad = 4
-    n = 4
-    print(Solution().firstBadVersion(n))
+bad, n = 4, 5
+print(Solution().firstBadVersion(n))
