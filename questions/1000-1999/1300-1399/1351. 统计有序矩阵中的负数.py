@@ -11,21 +11,21 @@ class Solutions():
     # 二分查找
     def countNegatives(self, grid: list) -> int:
         m, n = len(grid[0]), len(grid)
-        res, ind = 0, m
+        res, index = 0, m
         for i in range(n):
-            if ind == 0:
+            if index == 0:
                 break
-            if grid[i][ind - 1] >= 0:
+            if grid[i][index - 1] >= 0:
                 continue
-            left, right = 0, ind
+            left, right = 0, index
             while left < right:
                 mid = left + (right - left) // 2
                 if grid[i][mid] >= 0:
                     left = mid + 1
                 else:
                     right = mid
-            res += (ind - left) * (n - i)
-            ind = left
+            res += (index - left) * (n - i)
+            index = left
         return res
 
 

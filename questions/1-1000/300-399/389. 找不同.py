@@ -1,6 +1,5 @@
 # Date:       2020/12/18
 # encode:      UTF-8
-__author__ = "zcTresure"
 
 
 class Solution:
