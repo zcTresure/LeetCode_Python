@@ -1,9 +1,10 @@
 from collections import Counter
+from typing import List
 
 
 class Solution:
     # 排序
-    def intersect(self, nums1: list, nums2: list) -> list:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
         nums1.sort()
         nums2.sort()
         m = len(nums1)
@@ -24,7 +25,7 @@ class Solution:
         return ans
 
     # 哈希表
-    def intersect(self, nums1: list, nums2: list) -> list:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
         if len(nums1) > len(nums2):
             return self.intersect(nums2, nums1)
         m = Counter(nums1)

@@ -1,12 +1,14 @@
+# File Name:  1356. 根据数字二进制下 1 的数目排序
+# date:       2020/11/06
+# encode:      UTF-8
 
-
-__author__ = "zcTresure"
 
 from collections import defaultdict
+from typing import List
 
 
 class Solution:
-    def sortByBits(self, arr: list) -> list:
+    def sortByBits(self, arr: List[int]) -> List[int]:
         bins = defaultdict(list)
         for num in arr:
             count, tmp = 0, num
@@ -20,7 +22,7 @@ class Solution:
                 res += sorted(bins[i])
         return res
 
-    def sortByBits(self, arr: list) -> list:
+    def sortByBits(self, arr: List[int]) -> List[int]:
         bins = [0] * 10001
         for i in range(1, 10001):
             bins[i] = bins[i >> 1] + i % 2
@@ -33,7 +35,7 @@ class Solution:
                 res += sorted(dic[i])
         return res
 
-    def sortByBits(self, arr: list) -> list:
+    def sortByBits(self, arr: List[int]) -> List[int]:
         return sorted(arr, key=lambda x: (bin(x).count('1'), x))
 
 
