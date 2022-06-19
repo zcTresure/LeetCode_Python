@@ -2,7 +2,6 @@
 # File:      33. 搜索旋转排序数组.py
 # DATA:      2021/12/22
 # Software:  PyCharm
-__author__ = 'zcFang'
 
 from typing import List
 

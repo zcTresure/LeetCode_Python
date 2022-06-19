@@ -1,6 +1,10 @@
+from bisect import bisect_left
+from typing import List
+
+
 class Solution:
     # 暴力 会超出时间限制
-    def minSubArrayLen(self, s, nums):
+    def minSubArrayLen(self, s: int, nums: List[int]) -> int:
         n = len(nums)
         print(n)
         ans = float("inf")
@@ -15,7 +19,7 @@ class Solution:
         return ans if ans != float('inf') else 0
 
     # 优化的暴力 也会超出时间限制
-    def minSubArrayLen(self, s, nums):
+    def minSubArrayLen(self, s: int, nums: List[int]) -> int:
         n = len(nums)
         ans = float("inf")
         sums = [0] * n
@@ -30,11 +34,27 @@ class Solution:
                     break
         return ans if ans != float('inf') else 0
 
+    # 前缀和 + 二分查找
+    def minSubArrayLen(self, s: int, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        n = len(nums)
+        ans = n + 1
+        sums = [0]
+        for num in nums:
+            sums.append(sums[-1] + num)
+        for i in range(1, n + 1):
+            target = s + sums[i - 1]
+            bound = bisect_left(sums, target)
+            if bound != n + 1:
+                ans = min(ans, bound - (i - 1))
+        return 0 if ans == n + 1 else ans
+
     # 双指针
-    def minSubArrayLen(self, s, nums):
+    def minSubArrayLen(self, s: int, nums: List[int]) -> int:
         n = len(nums)
         ans = float("inf")
-        sum = left = right = 0
+        sum = left = 0
         for right in range(n):
             sum += nums[right]
             while sum >= s:
@@ -44,6 +64,4 @@ class Solution:
         return ans if ans != float('inf') else 0
 
 
-s, nums = 7, [2, 3, 1, 2, 4, 3]
-test = Solution()
-print(test.minSubArrayLen(s, nums))
+print(Solution().minSubArrayLen(s=7, nums=[2, 3, 1, 2, 4, 3]))
