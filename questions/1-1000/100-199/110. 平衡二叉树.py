@@ -39,7 +39,6 @@ class Solution:
             self.isBalanced(root.left) and self.isBalanced(root.right)
 
     # 自底向上的递归
-
     def isBalanced(self, root: TreeNode) -> bool:
         def height(root: TreeNode) -> int:
             if not root:

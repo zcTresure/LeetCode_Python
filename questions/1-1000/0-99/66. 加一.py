@@ -2,7 +2,6 @@
 # File:      66. 加一.py
 # DATA:      2021/10/21
 # Software:  PyCharm
-__author__ = 'zcFang'
 
 from typing import List
 

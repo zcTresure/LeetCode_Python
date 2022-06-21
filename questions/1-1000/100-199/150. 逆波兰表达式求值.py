@@ -1,7 +1,6 @@
 # File Name:  150. 逆波兰表达式求值
 # date:       2021/3/20
 # oding:      UTF-8
-__author__ = 'zcTresure'
 
 from typing import List
 
@@ -9,23 +8,21 @@ from typing import List
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         stack = []
-        for i in range(len(tokens)):
-            if tokens[i] == '+':
-                stack.append((stack.pop() + stack.pop()))
-            elif tokens[i] == '-':
+        for token in tokens:
+            if token in '+-*/':
                 a, b = stack.pop(), stack.pop()
-                stack.append(int(b - a))
-            elif tokens[i] == '*':
-                stack.append(stack.pop() * stack.pop())
-            elif tokens[i] == '/':
-                a, b = stack.pop(), stack.pop()
-                stack.append(int(b / a))
+                if token == '+':
+                    stack.append(a + b)
+                elif token == '-':
+                    stack.append(b - a)
+                elif token == '*':
+                    stack.append(a * b)
+                elif token == '/':
+                    stack.append(int(b / a))
             else:
-                stack.append(int(tokens[i]))
-            print(stack)
-        return stack[-1]
+                stack.append(int(token))
+        return stack[0]
 
 
-test = Solution()
 tokens = ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]
-print(test.evalRPN(tokens))
+print(Solution().evalRPN(tokens))
