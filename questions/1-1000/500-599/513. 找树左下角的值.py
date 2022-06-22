@@ -3,6 +3,8 @@
 # encode:      UTF-8
 __author__ = 'zcTresure'
 
+from collections import deque
+from typing import Optional
 from template import BinaryTree
 
 
@@ -29,6 +31,19 @@ class Solution:
 
         heaper(root)
         return self.val
+
+    def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
+        q = deque([root])
+        ans = 0
+        while q:
+            n = len(q)
+            for i in range(n):
+                node = q.popleft()
+                if i == 0:
+                    ans = node.val
+                if node.left: q.append(node.left)
+                if node.right: q.append(node.right)
+        return ans
 
 
 nodes = [1, 2, 3, 4, 5, 6, None, None, 7]
