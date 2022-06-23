@@ -6,23 +6,23 @@ from typing import List
 
 
 class Solution:
-    def addToArrayForm(self, A: List[int], K: int) -> List[int]:
+    def addToArrayForm(self, num: List[int], k: int) -> List[int]:
         B = []
-        while K:
-            B.append(K % 10)
-            K //= 10
+        while k:
+            B.append(k % 10)
+            k //= 10
         B.reverse()
         x = 0
-        m, n = len(A), len(B)
+        m, n = len(num), len(B)
         ans = []
         while m and n:
-            x = x + A[m - 1] + B[n - 1]
+            x = x + num[m - 1] + B[n - 1]
             ans.append(x % 10)
             x //= 10
             m -= 1
             n -= 1
         while m:
-            x = x + A[m - 1]
+            x = x + num[m - 1]
             ans.append(x % 10)
             x //= 10
             m -= 1
@@ -36,19 +36,19 @@ class Solution:
         ans.reverse()
         return ans
 
-    def addToArrayForm(self, A: List[int], K: int) -> List[int]:
+    def addToArrayForm(self, num: List[int], k: int) -> List[int]:
         ans = []
-        n = len(A)
+        n = len(num)
         for i in range(n - 1, -1, -1):
-            sum = A[i] + K % 10
-            K //= 10
+            sum = num[i] + k % 10
+            k //= 10
             if sum >= 10:
-                K += 1
+                k += 1
                 sum %= 10
             ans.append(sum)
-        while K:
-            ans.append(K % 10)
-            K //= 10
+        while k:
+            ans.append(k % 10)
+            k //= 10
         ans.reverse()
         return ans
 
