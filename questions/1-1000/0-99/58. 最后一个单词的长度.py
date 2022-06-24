@@ -15,6 +15,9 @@ class Solution:
                 return ans
         return ans
 
+    def lengthOfLastWord(self, s: str) -> int:
+        return len(s.split()[-1])
+
 
 s = "sakjdo aksdnjla alskjdl asldj laskkjgwn ejorfi"
 print(Solution().lengthOfLastWord(s))
