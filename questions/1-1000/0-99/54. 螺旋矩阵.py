@@ -8,7 +8,7 @@ from typing import List
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         if not matrix or len(matrix) == 1:
-            return matrix
+            return matrix[0]
         ans = []
         dirs = [(0, 1), (1, 0), (0, -1), (-1, 0)]
         rows, cols = len(matrix), len(matrix[0])

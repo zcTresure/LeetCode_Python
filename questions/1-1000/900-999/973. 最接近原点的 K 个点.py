@@ -1,16 +1,14 @@
-
-
-__author__ = "zcTresure"
-
 import heapq
 import random
 
 
 class Solution:
+    # 排序
     def kClosest(self, points: list, K: int) -> list:
         points.sort(key=lambda x: x[0] ** 2 + x[1] ** 2)
         return points[:K]
 
+    # 快速选择（快速排序的思想）
     def kClosest(self, points: list, K: int) -> list:
         def random_select(left: int, right: int, K: int):
             pivot_id = random.randint(left, right)
@@ -32,6 +30,7 @@ class Solution:
         random_select(0, n - 1, K)
         return points[:K]
 
+    # 堆
     def kClosest(self, points: list, K: int) -> list:
         q = [(-x ** 2 - y ** 2, i) for i, (x, y) in enumerate(points[:K])]
         heapq.heapify(q)
