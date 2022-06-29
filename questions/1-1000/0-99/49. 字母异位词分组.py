@@ -1,6 +1,5 @@
 # Date:       2020/12/14
 # encode:      UTF-8
-__author__ = "zcTresure"
 
 from typing import List
 from collections import defaultdict
