@@ -1,10 +1,10 @@
+from typing import List
+
+
 class Solution:
-    def arrayRankTransform(self, arr: list) -> list:
-        tmp = {}
-        nums = sorted(list(set(arr)))
-        for i, num in enumerate(nums):
-            tmp[num] = i + 1
-        return [tmp[i] for i in arr]
+    def arrayRankTransform(self, arr: List[int]) -> List[int]:
+        ranks = {v: i for i, v in enumerate(sorted(set(arr)), 1)}
+        return [ranks[i] for i in arr]
 
 
 arr = [10, 10, 20, 30]
